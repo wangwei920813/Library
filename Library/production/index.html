@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"> 
+    <title>数字资源制作与管理</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="css/animate.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="css/nanoscroller.css"/>-->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <!--<script src="js/jquery.nanoscroller.min.js" type="text/javascript" charset="utf-8"></script>-->
+    <!--<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>-->
+    <style>
+    	
+    	/*分页器样式*/
+			.tcdPageCode,.tcdPageCode2,.tcdPageCode3, .tcdPageCode4{padding: 25px 0px 20px 0px; text-align: left;color: #ccc;text-align:center;}
+			.tcdPageCode a,.tcdPageCode2 a,.tcdPageCode3 a, .tcdPageCode4 a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+			.tcdPageCode a:hover,.tcdPageCode2 a:hover,.tcdPageCode3 a:hover, .tcdPageCode4 a:hover{text-decoration: none;border: 1px solid #428bca;}
+			.tcdPageCode span.current,.tcdPageCode2 span.current,.tcdPageCode3 span.current,.tcdPageCode4 span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #428bca;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+			.tcdPageCode span.disabled,.tcdPageCode2 span.disabled,.tcdPageCode3 span.disabled,.tcdPageCode4 span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
+			#number{width: 40px;height: 18px;margin: 0;margin-left: 20px;}
+			.record{display: inline-block;}
+			#jump{display: inline-block;height:28px;padding-left: 10px;vertical-align: top;line-height: 28px;cursor: pointer;}
+			/*分页器样式**结束*/
+        
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <img src="img/blue.png"/> <p>佛山市图书馆</p>
+            <ul class="logoin">
+                <li>登录</li>
+                <li>注册</li>
+                <li>联系客服</li>
+            </ul>
+        </div>
+        <div class="title">
+            <ul class="slider">
+                <li class="sliders">首页</li>
+                <li>创建个人出版物</li>
+                <li>我的出版物</li>
+                <div id="sousuo">
+                    <input type="text" name="" id="dataname" value="" placeholder="输入数据库名称" />
+                    <input type="button" name="" id="datasousuo" value="搜索" />
+                </div>
+            </ul>
+        </div>
+        
+    	<div class="content">
+    		<div class="con-all">
+    			<ul class="all-ul">
+    				<li>文本</li>
+    				<li id="all-color">图片</li>
+    				<li>视频</li>
+    				<li>电子书</li>
+    				<li>音频</li>
+    				<li>MMP</li>
+    			</ul>
+    			<div class="all-img">
+    				<div class="datu">
+    					<img src="img/1510713222(1).jpg"/>
+    				</div>
+    				<p>下载量：<span>23</span> 浏览量：<span>23</span> 点赞：<span>25</span><b><img src="img/shoucang_02.png"/> 收藏</b></p>
+    			</div>
+    			<div class="explain">
+    				<h2>个人出版平台说明</h2>
+    				<h3>1.如何创建我的个人出版物？</h3>
+    				<p>答：1) 选择自定义模板>编辑出版内容>签订出版物协议>提交审核(图书馆审核通过后个人出版物可以在我的出版物中显示。)</p>
+    				<p>2) 选择自定义模板>编辑出版内容>预览出版物效果>签订出版物协议>提交审核(图书馆审核通过后个人出版物可以在我的出版物中显示。)</p>
+    				<h3>2.我的出版物在哪儿看？</h3>
+    				<p>答：审核通过后的个人出版物在平台中个人出版物查看，可以通过筛选出版物状态查看。</p>
+    				<h3>3.我的收藏如何使用？</h3>
+    				<p>答：幼稚的出版物点击收藏可以添加到我的收藏中，可以根据关键字和排序方式进行搜索收藏内容，也可以取消收藏，取消收藏后我的出版物将不会在我的收藏中显示。</p>
+    			</div>
+    		</div>
+    		<div class="con-user">
+    			<div class="headimg">
+					<img src="img/touimg_03.png"/>
+    			</div>
+				<p class="username">名字</p>
+				<div class="shoucang">
+					<img src="img/shoucang_02.png"/> 我的收藏
+				</div>
+				<p class="tis">温馨提示</p>
+				<p class="tis">1.您可以上传日常累积和撰写的文档资料、每次可上传xx分，没份200MB，支持多种文档类型。</p>
+    		</div>
+    	</div>
+        <div class="foot">
+            <p>地址：佛山市佛山新城华康道11号(新馆) 邮编：528000 总机：0757-28360000 粤ICP备05083431号-5 粤 公网安备44060402000039号</p>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function(){
+    	//阻止默认事件
+    	$(document).bind("selectstart", function () { return false; });
+        //导航首页点击
+        $(".slider>li").on('click',function(){
+            $(".slider>li").removeClass('sliders');
+            $(this).addClass('sliders');
+            if($(this).index()==0){
+            	window.location.href = 'index.html';
+            }else if($(this).index()==1){
+            	window.location.href = 'make.html';
+            }else if($(this).index()==2){
+            	window.location.href = 'publication.html';
+            }
+            
+        })
+        $('.all-ul>li').on('click',function(){
+        	$('.all-ul>li').removeAttr('id','all-color');
+        	$(this).attr('id','all-color');
+        })
+        
+        
+        //出版物详情
+        $('.datu').on('click',function(){
+        	window.location.href = "indexcon.html"
+        })
+        
+        $('.shoucang').on('click',function(){
+        	window.location.href = 'publication.html'
+        })
+    })
+
+</script>
+</html>

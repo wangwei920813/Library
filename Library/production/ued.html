@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var color = location.search.split('=')[1];
+			if(color=="red"){
+				$('h1').css('color','red');
+			}else{
+				$('h1').css('color','blue');
+			}
+			function ifra(){
+				alert(123)
+			}
+		})
+			
+	</script>
+</html>

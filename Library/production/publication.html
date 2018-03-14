@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数字资源制作与管理</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/publication.css"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+    	/*分页器样式*/
+			.tcdPageCode,.tcdPageCode2,.tcdPageCode3, .tcdPageCode4{padding: 25px 0px 20px 0px; text-align: left;color: #ccc;text-align:center;}
+			.tcdPageCode a,.tcdPageCode2 a,.tcdPageCode3 a, .tcdPageCode4 a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+			.tcdPageCode a:hover,.tcdPageCode2 a:hover,.tcdPageCode3 a:hover, .tcdPageCode4 a:hover{text-decoration: none;border: 1px solid #428bca;}
+			.tcdPageCode span.current,.tcdPageCode2 span.current,.tcdPageCode3 span.current,.tcdPageCode4 span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #428bca;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+			.tcdPageCode span.disabled,.tcdPageCode2 span.disabled,.tcdPageCode3 span.disabled,.tcdPageCode4 span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
+			#number{width: 40px;height: 18px;margin: 0;margin-left: 20px;}
+			.record{display: inline-block;}
+			#jump{display: inline-block;height:28px;padding-left: 10px;vertical-align: top;line-height: 28px;cursor: pointer;}
+			/*分页器样式**结束*/
+        
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <img src="img/blue.png"/> <p>佛山市图书馆</p>
+            <ul class="logoin">
+                <li>登录</li>
+                <li>注册</li>
+                <li>联系客服</li>
+            </ul>
+        </div>
+        <div class="title">
+            <ul class="slider">
+                <li>首页</li>
+                <li>创建个人出版物</li>
+                <li class="sliders">我的出版物</li>
+                <div id="sousuo">
+                    <input type="text" name="" id="dataname" value="" placeholder="输入数据库名称" />
+                    <input type="button" name="" id="datasousuo" value="搜索" />
+                </div>
+            </ul>
+        </div>
+        <!--我的出版物-->
+        <div class="mepublication">
+        	<!--过滤分类-->
+        	<div class="filter">
+        		<ul>
+        			<li>
+        				<p>属性：</p>
+        				<select name="">
+	        				<option value="">123</option>
+	        			</select>
+        			</li>
+        			<li>
+        				<p>状态：</p>
+        				<select name="">
+	        				<option value="">已审核</option>
+	        				<option value="">未审核</option>
+	        				<option value="">已发布</option>
+	        				<option value="">待编辑</option>
+	        			</select>
+        			</li>
+        			<li>
+        				<p>排序方式：</p>
+        				<select name="">
+	        				<option value="">123</option>
+	        			</select>
+        			</li>
+        			<li>
+        				<p>全文：</p>
+        				<select name="">
+	        				<option value="">123</option>
+	        			</select>
+        			</li>
+        		</ul>
+        		<div class="riqi">
+        			<p class="day">日期：</p>
+        			<input type="text" id="day" placeholder="开始 到 结束"/>
+        		</div>
+        		<input type="button" name="" id="screen" value="筛选" />
+        	</div>
+        	<!--表头-->
+        	<p class="metitle">
+        		<span class="no_1"><label><input name="choice1" id="allimg" type="checkbox" value="" onclick="choice()" /> 全选</label> </span>
+        		<span class="no_2">名称</span>
+        		<span class="no_3">属性</span>
+        		<span class="no_4">状态</span>
+        		<span class="no_5">创建日期</span>
+        		<span class="no_6">浏览</span>
+        		<span class="no_7">下载</span>
+        		<span class="no_8">点赞</span>
+        		<span class="no_9">操作</span>
+        		<span class="no_10">批量删除</span>
+        	</p>
+        	<!--内容-->
+        	<ul class="mmp">
+        		<li id="no1color">
+        			<p class="no1_1"><label><input name="choice" class="dg" type="checkbox" value="1" onclick="choice2()" /> 1</label></p>
+		    		<p class="no1_2">仰望星空</p>
+		    		<p class="no1_3"><img src="img/book.png"/></p>
+		    		<p class="no1_4">待审核</p>
+		    		<p class="no1_5">2017/10/21至2017/11/16</p>
+		    		<p class="no1_6">255</p>
+		    		<p class="no1_7">23</p>
+		    		<p class="no1_8">45</p>
+		    		<p class="no1_9"><span>预览</span></p>
+		    		<p class="no1_10"><span>删除</span></p>                                                                                        
+        		</li>
+        		<li id="no1color">
+        			<p class="no1_1"><label><input name="choice" class="dg" type="checkbox" value="2" onclick="choice2()" /> 2</label></p>
+		    		<p class="no1_2">仰望星空</p>
+		    		<p class="no1_3"><img src="img/book.png"/></p>
+		    		<p class="no1_4">已发布</p>
+		    		<p class="no1_5">2017/10/21至2017/11/16</p>
+		    		<p class="no1_6">255</p>
+		    		<p class="no1_7">23</p>
+		    		<p class="no1_8">45</p>
+		    		<p class="no1_9"><span>预览</span></p>
+		    		<p class="no1_10"><span>删除</span></p>                                                                                        
+        		</li>
+        		<li id="no1color">
+        			<p class="no1_1"><label><input name="choice" class="dg" type="checkbox" value="3" onclick="choice2()" /> 3</label></p>
+		    		<p class="no1_2">仰望星空</p>
+		    		<p class="no1_3"><img src="img/book.png"/></p>
+		    		<p class="no1_4">待编辑</p>
+		    		<p class="no1_5">2017/10/21至2017/11/16</p>
+		    		<p class="no1_6">255</p>
+		    		<p class="no1_7">23</p>
+		    		<p class="no1_8">45</p>
+		    		<p class="no1_9"><span>修改</span></p>
+		    		<p class="no1_10"><span>删除</span></p>                                                                                        
+        		</li>
+        	</ul>
+        	<!--分页-->
+        	<div class="tcdPageCode"></div>
+        </div>
+        <div class="foot">
+            <p>地址：佛山市佛山新城华康道11号(新馆) 邮编：528000 总机：0757-28360000 粤ICP备05083431号-5 粤 公网安备44060402000039号</p>
+        </div>
+    </div>
+</body>
+<!--<script data-main="js/publication" src="js/require.js" type="text/javascript" charset="utf-8"></script>-->
+<script type="text/javascript">
+//	$(function(){
+		//阻止默认事件
+		$(document).bind("selectstart", function () { return false; });
+		//
+		$('#screen').on('click',function(){
+			var str=""; 
+			$(".dg:checked").each(function() {
+	            str += $(this).val() + " ";
+	        });
+				alert(str); 
+		}) 
+		//导航首页点击
+		$(".slider>li").on('click', function() {
+			$(".slider>li").removeClass('sliders');
+			$(this).addClass('sliders');
+			if($(this).index() == 0) {
+				window.location.href = 'index.html';
+			} else if($(this).index() == 1) {
+				window.location.href = 'make.html';
+			} else if($(this).index() == 2) {
+				window.location.href = 'publication.html';
+			}
+		})
+		//日期范围
+		laydate.render({
+			elem: '#day',
+			range: true,
+			done: function(value, date, endDate) {
+				console.log(value)
+			}
+		});
+		/*全选*/
+		//是否全选判断变量
+		var allimg = false;
+		
+		function choice() {
+			if(allimg) {
+				$('input[name=choice]').each(function() {
+					this.checked = false;
+				});
+				allimg = false;
+			} else {
+				$('input[name=choice]').each(function() {
+					this.checked = true;
+				});
+				allimg = true;
+			}
+		}
+		/*当全部选择或有一个取消时全选按钮取消*/
+		function choice2() {
+			var one = document.getElementsByClassName("dg");
+			var all = document.getElementById("allimg");
+			var selCount = 0;
+			var unSelCount = 0;
+			for(var i = 0; i < one.length; i++) {
+				if(one[i].checked == true) {
+					selCount++;
+				}
+				if(one[i].checked == false) {
+					unSelCount++;
+				}
+				if(selCount == one.length) {
+					all.checked = true;
+				}
+				if(unSelCount > 0) {
+					all.checked = false;
+				}
+			}
+		}
+		/*删除功能*/
+		//批量删除
+		$('.no_10').on('click', function() {
+			$('input[name=choice]').each(function() {
+				if(this.checked == true) {
+					$(this).parent().parent().parent().remove();
+				}
+			});
+		})
+		//单点删除
+		$('.no1_10').on('click', function() {
+			$(this).parent().remove();
+		})
+		/*删除功能结束*/
+		//分页
+		var pagenum = 100;
+		var totalpage = 10;
+		page()
+		function page(){
+			$(".tcdPageCode").createPage({
+				pageCount: totalpage,
+				current: 1,
+				backFn: function(p) {
+					//console.log(p);
+					pagenum = p;
+					console.log(pagenum)
+				}
+			});
+		}
+//	})
+</script>
+</html>

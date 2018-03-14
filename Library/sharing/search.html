@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>佛山市联合图书馆数字资源共建共享平台</title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+		<link rel="stylesheet" type="text/css" href="css/navigation1.css">
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/addURL.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<img class="zixun" src="img/right_03.png"/>
+		<div id="fixed">
+			<img src="img/right_07.png"/>
+			<img src="img/right_09.png"/>
+			<img src="img/right_11.png"/>
+			<img src="img/right_13.png"/>
+			<img src="img/right_15.png"/>
+			<img src="img/right_17.png"/>
+			<img src="img/right_20.png"/>
+		</div>
+		<div class="wrap">
+			<iframe src="top.html" width="100%" height="40px" style="border: none;"></iframe>
+			<div class="title">
+				<ul class="slider">
+					<li class="homepage">首页</li>
+					<li class="navigation sliders">资源导航</li>
+					<li class="consultation">资讯</li>
+					<li class="courseware">培训课件</li>
+					<li class="favorite">我的收藏夹</li>
+					<li class="reference">参考咨询</li>
+					<li class="toold">工具下载</li>
+					<div id="sousuo">
+						<input type="text" name="" id="dataname" value="" placeholder="输入数据库名称" />
+						<input type="button" name="" id="datasousuo" value="搜索" />
+					</div>
+				</ul>
+			</div>
+			<div class="content">
+				<div class="erci" style="margin-bottom: 10px;">
+					<ul class="list">
+						<li class="ercic">全部</li>
+						<li>图书</li>
+						<li>期刊</li>
+						<li>报纸</li>
+						<li>学位论文</li>
+						<li>会议论文</li>
+						<li>专利</li>
+						<li>标准</li>
+						<li>知识库</li>
+					</ul>
+					<div class="ercitxt">
+						<input id="ipt1" name="tn" type="hidden" value="baidu" >
+						<input type="text" id="ercitxt" value="" name="word" maxlength="8048" value="" placeholder="" baiduSug=1 onmouseover="focus()" />
+						<input type="button" name="" id="ch" value="中文检索" />
+						<input type="button" name="" id="en" value="外文检索" />
+						<div class="bbb">
+							<input type="button" name="" id="senior" value="高级检索" />
+							<input type="button" name="" id="major" value="专业检索" />
+						</div>
+					</div>
+					<ul class="option">
+						<!--<li><img src="img/dian_06.png"/> 二次搜索</li>-->
+					</ul>
+				</div>
+				
+				
+				<!--搜索有结果-->
+				<div class="result2">
+					<p style="padding: 5px 0; font-size: 18px;">搜索结果</p>
+					<ul class="ku">
+						<!--<li class="kucolor">中文数据库</li>
+						<li>台湾数据库</li>
+						<li>外文数据库</li>
+						<li>自建数据库</li>
+						<li>试用数据库</li>
+						<li>共享工程</li>
+						<li>开放资源</li>-->
+					</ul>
+					<p style="display: inline-block;width: 110px;height: 50px;line-height: 50px;vertical-align: top;text-align: center;">字母检索:</p>
+					<ul class="zimu">
+						<li>A</li>
+						<li>B</li>
+						<li>C</li>
+						<li>D</li>
+						<li>E</li>
+						<li>F</li>
+						<li>G</li>
+						<li>H</li>
+						<li>I</li>
+						<li>G</li>
+						<li>K</li>
+						<li>L</li>
+						<li>M</li>
+						<li>N</li>
+						<li>O</li>
+						<li>P</li>
+						<li>Q</li>
+						<li>R</li>
+						<li>S</li>
+						<li>T</li>
+						<li>U</li>
+						<li>V</li>
+						<li>W</li>
+						<li>X</li>
+						<li>Y</li>
+						<li>Z</li>
+					</ul>
+					<!--搜索无结果-->
+					<div class="result1" style="display: none;">
+						<!--<p>搜索无结果</p>-->
+						<div class="results">
+							<img src="img/wujiangou_03.png"/>
+							<p style="text-align: center;">搜索无结果</p>
+							<p>对不起，您要找的数据库在图书馆中没有找到您可以向图书馆<img src="img/wujiangou_07.png" class="jiangou" alt="" />感谢您的理解与支持！</p>
+						</div>
+					</div>
+					<!--搜索出的结果-->
+					<ul id="data" style="display: none;">
+						<!--<li>
+							<div class="data1">
+								<img class="rt" src="img/tuijian_03.png"/>
+								<h3>万方数据</h3>
+								<p><img style="margin-top: -5px;" src="img/weishoucang_03.png"/> 点击收藏</p>
+								<img class="bb" src="img/bb.jpg"/>
+							</div>
+							<div class="data2">
+								<h3>资源介绍</h3>
+								<p>期刊论文、博士论文、期刊论文、期刊论文、博士论文、期刊论文、期刊论文、博士论文、期刊论文、期刊论文、博士论文、期刊论文、期刊论文、博士论文、期刊论文、</p>
+								<p class="bq"><img src="img/shuqian_03.png"/> 所属标签：中文数据库</p>
+							</div>
+							<div class="data3">
+								<p class="ptext">资源链接：</p>
+								<ul class="bookg">
+									<li>佛山市图书馆</li>
+									<li>南海图书馆</li>
+									<li>禅城图书馆</li>
+									<li>高明图书馆</li>
+								</ul>
+								<p class="explain">使用说明： <span><img src="img/shipin_03.png"/> <img src="img/shipin_05.png"/></span></p>
+								<p class="clicknum">点击数：<span>1008611</span></p>
+							</div>
+						</li>
+						
+						<li>
+							<div class="data1">
+								<img class="rt" src="img/tuijian_03.png"/>
+								<h3>万方数据</h3>
+								<p><img style="margin-top: -5px;" src="img/shoucang_03.png"/> 已收藏</p>
+								<img class="bb" src="img/bb.jpg"/>
+							</div>
+							<div class="data2">
+								<h3>资源介绍</h3>
+								<p>期刊论文、博士论文、期刊论文、期刊论文、博士论文、期刊论文、期刊论文、博士论文、期刊论文、期刊论文、博士论文、期刊论文、期刊论文、博士论文、期刊论文、</p>
+								<p class="bq"><img src="img/shuqian_03.png"/> 所属标签：中文数据库</p>
+							</div>
+							<div class="data3">
+								<p class="ptext">资源链接：</p>
+								<ul class="bookg">
+									<li>佛山市图书馆</li>
+									<li>南海图书馆</li>
+									<li>禅城图书馆</li>
+									<li>高明图书馆</li>
+								</ul>
+								<p class="explain">使用说明： <span><img src="img/shipin_03.png"/> <img src="img/shipin_05.png"/></span></p>
+								<p class="clicknum">点击数：<span>1008611</span></p>
+							</div>
+						</li>-->
+					</ul>
+					<!--分页器-->
+					<div class="tcdPageCode"></div>
+				</div>
+			</div>
+		</div>
+		<!--高级检索-->
+		<div style="display: none;" class="modal fade modal1" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header modal1-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/x-1000_03.png"/></button>
+						<h4 class="modal-title" style="line-height: 40px;">个性化检索</h4>
+					</div>
+					<div class="modal-body modal1-body">
+						<div class="name" style="opacity: 0">
+							检索名称：<input type="text" id="name" /> <span id="fanhui">返回简单检索</span>
+						</div>
+						<div class="literature">
+							<div class="top">
+								<div class="top-le">
+									文献类型选择：
+								</div>
+								<div class="top-ri">
+
+								</div>
+							</div>
+							<div class="bottom">
+								<ul class="botul">
+									<span>+</span>
+									<span>-</span>
+									<li>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+									<li>
+										<select name="" class="sel1">
+											<option value="and">与</option>
+											<option value="or">或</option>
+										</select>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+									<li>
+										<select name="" class="sel1">
+											<option value="and">与</option>
+											<option value="or">或</option>
+										</select>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+								</ul>
+								<p style="margin-top: 10px;font-size: 14px;">说明：高级检索多个条件检索是按照顺序运算的：如A或B与C 即：(A或B)与C</p>
+							</div>
+							<p class="datap">数据库选择：</p><div class="data">
+						</div>
+							<p class="language">语种：
+								<select name="" id="language">
+									<option value="">请选择</option>
+								</select>
+								<span style="margin-left: 65px;">成员馆：</span>
+								<select name="" id="member">
+									<option value="">请选择</option>
+								</select>
+							</p>
+							<p class="yesear">年份：
+								<select name="" id="startmember">
+									<option value="">开始的年份</option>
+								</select>
+								至
+								<select name="" id="endmember">
+									<option value="">结束的年份</option>
+								</select>
+							</p>
+							<p class="datanumber">每页显示条数：
+								<label><input class="tiaoshu" name="datanumber" type="radio" value="15" checked="checked" />15</label>
+								<label><input class="tiaoshu" name="datanumber" type="radio" value="20" />20</label>
+							</p>
+							<!--<p class="display">只显示：-->
+							<!--<label><input class="xianshi" name="display" type="radio" value="0" checked="checked" />馆藏书目</label>-->
+							<!--<label><input class="xianshi" name="display" type="radio" value="1" />电子书目</label>-->
+							<!--</p>-->
+							<div class="btns">
+								<div id="searchbtn">检索</div>
+								<div id="returnbtn">返回简单检索</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<iframe src="bottom.html" width="100%" height="80px" style="border: none;margin-top: 20px;"></iframe>
+	</body>
+	<script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
+	<script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicSearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicMethod.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicCondition.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/SeniorSearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/search.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>资源荐购</title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/addURL.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<img class="zixun" src="img/right_03.png"/>
+		<div id="fixed">
+			<img src="img/right_07.png"/>
+			<img src="img/right_09.png"/>
+			<img src="img/right_11.png"/>
+			<img src="img/right_13.png"/>
+			<img src="img/right_15.png"/>
+			<img src="img/right_17.png"/>
+			<img src="img/right_20.png"/>
+		</div>
+		<div class="wrap">
+			<iframe src="top.html" width="100%" height="40px" style="border: none;"></iframe>
+			<div class="title">
+				<ul class="slider">
+					<li class="homepage">首页</li>
+					<li class="sliders navigation">资源导航</li>
+					<li class="consultation">资讯</li>
+					<li class="courseware">培训课件</li>
+					<li class="favorite">我的收藏夹</li>
+					<li class="reference">参考咨询</li>
+					<li class="toold">工具下载</li>
+					<div id="sousuo">
+						<input type="text" name="" id="dataname" value="" placeholder="输入数据库名称" />
+						<input type="button" name="" id="datasousuo" value="搜索" />
+					</div>
+				</ul>
+			</div>
+			<div class="content">
+				<!--荐购-->
+				<div class="recommendation">
+					<p style="font-size: 20px; line-height: 35px;">资源荐购</p>
+					<div class="rec-left">
+						<p class="rec-p">您希望图书馆还需要购买哪种数据库?</p>
+						<ul>
+							<li>数据库名称：<select name="" id="shujuku">
+								<option value="num">请选择...</option>
+								<option value="0">万方数据库</option> 
+								<option value="1">德玛西亚数据库</option> 
+								<option value="2">瑞文数据库</option>
+								<option value="3">大嘴数据库 </option>
+							</select></li>
+							<li>荐购理由：<input type="text" placeholder="请输入" /></li>
+							<li>简要说明：<input type="text" placeholder="请输入" /></li>
+							<li>职业：<select name="" id="occupation">
+								<option value="num">请选择...</option>
+								<option value="0">老师</option> 
+								<option value="1">学生</option> 
+								<option value="2">政府机关</option>
+								<option value="3">其他 </option>
+							</select></li>
+							<li>联系方式：<input type="text" placeholder="请输入" /></li>
+						</ul>
+						<span class="rec-btn">提交</span>
+					</div>
+					<ul class="rec-right">
+						<li><img src="img/hz_03.png"/></li>
+						<li><img src="img/hz_06.png"/></li>
+						<li><img src="img/hz_08.png"/></li>
+						<li><img src="img/hz_10.png"/></li>
+						<li><img src="img/hz_13.png"/></li>
+						<li><img src="img/hz_16.png"/></li>
+						<li><img src="img/hz_18.png"/></li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		<iframe src="bottom.html" width="100%" height="80px" style="border: none;"></iframe>
+	</body>
+	<script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicMethod.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			//数据库下拉列表
+			$.ajax({
+				type:"get",
+				url: getURL()+"webservice/service/shared/getDatabase",
+				async:true,
+				dataType:'json',
+				success:function(data){
+//					console.log(data)
+					var html = '<option value="num">请选择...</option>';
+					for (var i = 0; i < data.data.length; i++) {
+						html += '<option value="'+data.data[i].ID+'">'+data.data[i].NAME+'</option>'
+					}
+					$('#shujuku').html(html);
+				}
+			});
+			//提交
+			$('.rec-btn').on('click',function(){
+				/*  readerid	用户ID
+					databaseid	数据库ID
+					reason		荐购理由
+					instructions简要说明
+					professional读者职业
+					contact		联系方式
+				*/
+				var readerid=databaseid=reason=instructions=professional=contact='';
+//				databaseid = location.search.split("=")[1];
+				databaseid = $('#shujuku').val();
+				reason = $('.rec-left>ul>li:nth-child(2)').find("input").val();
+				instructions = $('.rec-left>ul>li:nth-child(3)').find("input").val();
+				professional = $('#occupation').val();
+				contact = $('.rec-left>ul>li:nth-child(5)').find("input").val();
+				$.ajax({
+					type:'post',
+					url:getURL()+"webservice/service/shared/recommend",
+					async:'true',
+					dataType:'json',
+//					data:"{'readerid':'300256425','databaseid','"+databaseid+"','reason':'"+reason+"','instructions':'"+instructions+"','professional','"+professional+"','contact','"+contact+"'}",
+					data:"{'readerid':'300256425','databaseid':'"+databaseid+"','reason':'"+reason+"','instructions':'"+instructions+"','professional':'"+professional+"','contact':'"+contact+"'}",
+					success:function(data){
+						console.log(data)
+						alert("荐购成功")
+						window.history.go(-1);
+						window.location.reload();
+					}
+				})
+			})
+			
+			
+		})
+	</script>
+</html>

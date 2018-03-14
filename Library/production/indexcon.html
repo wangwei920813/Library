@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"> 
+    <title>数字资源制作与管理</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="css/animate.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="css/nanoscroller.css"/>-->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <!--<script src="js/jquery.nanoscroller.min.js" type="text/javascript" charset="utf-8"></script>-->
+    <!--<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>-->
+    <style>
+    	
+    	/*分页器样式*/
+			.tcdPageCode,.tcdPageCode2,.tcdPageCode3, .tcdPageCode4{padding: 25px 0px 20px 0px; text-align: left;color: #ccc;text-align:center;}
+			.tcdPageCode a,.tcdPageCode2 a,.tcdPageCode3 a, .tcdPageCode4 a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+			.tcdPageCode a:hover,.tcdPageCode2 a:hover,.tcdPageCode3 a:hover, .tcdPageCode4 a:hover{text-decoration: none;border: 1px solid #428bca;}
+			.tcdPageCode span.current,.tcdPageCode2 span.current,.tcdPageCode3 span.current,.tcdPageCode4 span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #428bca;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+			.tcdPageCode span.disabled,.tcdPageCode2 span.disabled,.tcdPageCode3 span.disabled,.tcdPageCode4 span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
+			#number{width: 40px;height: 18px;margin: 0;margin-left: 20px;}
+			.record{display: inline-block;}
+			#jump{display: inline-block;height:28px;padding-left: 10px;vertical-align: top;line-height: 28px;cursor: pointer;}
+			/*分页器样式**结束*/
+        
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <img src="img/blue.png"/> <p>佛山市图书馆</p>
+            <ul class="logoin">
+                <li>登录</li>
+                <li>注册</li>
+                <li>联系客服</li>
+            </ul>
+        </div>
+        <div class="title">
+            <ul class="slider">
+                <li class="sliders">首页</li>
+                <li>创建个人出版物</li>
+                <li>我的出版物</li>
+                <div id="sousuo">
+                    <input type="text" name="" id="dataname" value="" placeholder="输入数据库名称" />
+                    <input type="button" name="" id="datasousuo" value="搜索" />
+                </div>
+            </ul>
+        </div>
+        <!--出版物详细-->
+        <div class="con">
+        	<div class="con-con">
+        		<h2>出版物名称</h2>
+        	</div>
+        	<div class="la">
+        		<img id="btn1" src="img/lalala_03.png"/>
+        		<img id="btn2" src="img/lalala_06.png"/>
+        		<img id="btn3" src="img/lalala_08.png"/>
+        	</div>
+        </div>
+        <div class="foot">
+            <p>地址：佛山市佛山新城华康道11号(新馆) 邮编：528000 总机：0757-28360000 粤ICP备05083431号-5 粤 公网安备44060402000039号</p>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function(){
+    	//阻止默认事件
+    	$(document).bind("selectstart", function () { return false; });
+        //导航首页点击
+        $(".slider>li").on('click',function(){
+            $(".slider>li").removeClass('sliders');
+            $(this).addClass('sliders');
+            if($(this).index()==0){
+            	window.location.href = 'index.html';
+            }else if($(this).index()==1){
+            	window.location.href = 'make.html';
+            }else if($(this).index()==2){
+            	window.location.href = 'publication.html';
+            }
+            
+        })
+        $('.all-ul>li').on('click',function(){
+        	$('.all-ul>li').removeAttr('id','all-color');
+        	$(this).attr('id','all-color');
+        })
+        
+        
+        //出版物详情
+        $('.datu').on('click',function(){
+        	$('.content').css('display','none');
+        	$('.con').css('display','block');
+        })
+        
+        $('.shoucang').on('click',function(){
+        	window.location.href = 'publication.html'
+        })
+    })
+
+</script>
+</html>

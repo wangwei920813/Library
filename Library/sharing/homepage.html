@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/addURL.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<img class="zixun" src="img/right_03.png"/>
+		<div id="fixed">
+			<img src="img/right_07.png"/>
+			<img src="img/right_09.png"/>
+			<img src="img/right_11.png"/>
+			<img src="img/right_13.png"/>
+			<img src="img/right_15.png"/>
+			<img src="img/right_17.png"/>
+			<img src="img/right_20.png"/>
+		</div>
+		<div class="wrap">
+			<iframe src="top.html" width="100%" height="40px" style="border: none;"></iframe>
+			<div class="title">
+				<ul class="slider">
+					<li class="sliders homepage">首页</li>
+					<li class="navigation">资源导航</li>
+					<li class="consultation">资讯</li>
+					<li class="courseware">培训课件</li>
+					<li class="favorite">我的收藏夹</li>
+					<li class="reference">参考咨询</li>
+					<li class="toold">工具下载</li>
+					<div id="sousuo">
+						<input type="text" name="" id="dataname" value="" placeholder="输入数据库名称" />
+						<input type="button" name="" id="datasousuo" value="搜索" />
+					</div>
+				</ul>
+			</div>
+			<div class="content">
+				
+			</div>
+		</div>
+		
+		
+		<iframe src="bottom.html" width="100%" height="80px" style="border: none;"></iframe>
+	</body>
+	<script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicMethod.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+	<script type="text/javascript">
+		if (window.sessionStorage["click"]=='1') {
+			alert("已登录过首页")
+		}else{
+			var storage = window.sessionStorage;
+			storage.click = 1;
+			$.ajax({
+				type:"post",
+				url: getURL()+"webservice/service/shared/addHomeinfo",
+				async:true,
+				dataType:"json",
+				data:"{'ipinfo':'"+returnCitySN['cip']+"'}",
+				success:function(data){
+					console.log(data)
+				}
+			});
+			alert("首页登录+1")
+		}
+		
+	</script>
+</html>

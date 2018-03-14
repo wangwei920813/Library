@@ -1,0 +1,279 @@
+/*高级搜索模态框*/
+.modal1{
+	width: 890px;
+	height: 700px;
+	left: 40%;
+	display: none;
+}
+.modal1-header{
+	height: 41px;
+	background: #2cc6f5;
+	border-radius: 4px 4px 0 0;
+	color: white;
+	font-size: 24px;
+}
+#myModalLabel{
+	line-height: 41px;
+}
+.close{
+	opacity: 1;
+}
+.name{
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	box-sizing: border-box;
+	padding-left: 160px;
+}
+#name{
+	width: 245px;
+	height: 15px;
+	margin-right: 20px;
+	margin-bottom: 0;
+}
+.name>span{
+	cursor: pointer;
+	color: red;
+}
+.name>span:hover{
+	border-bottom: 1px solid red;
+}
+.modal1-body{
+	height: 610px;
+	min-height: 610px;
+}
+.literature{
+	width: 100%;
+	margin: 10px 0;
+}
+.literature label{
+	display: inline-block;
+	line-height: 25px;
+	margin-right: 20px;
+}
+.literature input{
+	margin: 0;
+}
+.top{
+	width: 100%;
+}
+.top-le{
+	width: 240px;
+	display: inline-block;
+	text-align: right;
+	vertical-align: top;
+	line-height: 25px;
+}
+.top-ri{
+	width: 560px;
+	display: inline-block;
+}
+.clickp{
+	display:inline-block;
+	cursor:pointer;
+	margin: 5px 20px 5px 0;
+	font-size:14px;
+}
+.bottom{
+	width: 570px;
+	margin-left: 240px;
+}
+.bottom>ul>span{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #CCCCCC;
+	line-height: 20px;
+	text-align: center;
+	color: #2CC6F5;
+	font-size: 24px;
+	cursor: pointer;
+}
+.bottom>ul>span:hover{
+	opacity: 0.8;
+}
+.bottom>.input1-1{
+	width: 95px;
+	height: 15px;
+	vertical-align: top;
+	margin-left: 10px;
+}
+.bottom>.input1-2{
+	width: 250px;
+	height: 15px;
+	vertical-align: top;
+	margin: 0 20px 0 10px;
+}
+.bottom>.input1-3{
+	width: 75px;
+	height: 15px;
+	vertical-align: top;
+}
+.bottom select{
+	padding: 0;
+	height: 25px;
+	display: inline-block;
+}
+.bottom>input{
+	height: 15px;
+}
+.bottom>ul>li:nth-child(3){
+	width: 505px!important;
+	display: inline-block!important;
+	margin-left: 11px!important;
+	margin-top: 0px!important;
+	vertical-align: top!important;
+}
+.bottom>ul>li{
+	margin-top: 10px;
+}
+.sel1{
+	width: 50px;
+	margin-right: 10px;
+}
+.sel2{
+	width: 109px;
+}
+.bottom>ul>li>.txt{
+	width: 250px;
+	height: 15px;
+	margin: 0 20px 0 10px;
+}
+.sel3{
+	width: 89px;
+}
+.datap{
+	width: 240px;
+	text-align: right;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 15px;
+}
+.data{
+	width: 570px;
+	min-height: 160px;
+	border: 1px solid #CCCCCC;
+	display: inline-block;
+	margin-top: 10px;
+}
+.data label{
+	margin: 0 5px;
+}
+.data label input{
+	margin-left: 3px;
+}
+.language{
+	text-indent: 187px;
+	margin: 10px 0;
+}
+.language select{
+	padding: 0;
+	height: 25px;
+}
+#language{
+	width: 93px;
+}
+#member{
+	width: 240px;
+}
+.yesear{
+	margin: 10px 0;
+	text-indent: 187px;
+}
+#startmember, #endmember{
+	width: 93px;
+	height: 25px;
+	padding: 0;
+	font-size: 14px;
+}
+.datanumber{
+	padding-left: 123px;
+	box-sizing: border-box;
+}
+.datanumber>label{
+	margin: 0;
+}
+.display{
+	padding-left: 170px;
+	box-sizing: border-box;
+}
+.display>label{
+	margin: 0;
+}
+.btns{
+	width: 270px;
+	height: 40px;
+	margin: 45px auto 0 auto;
+}
+#searchbtn,#returnbtn,#modify{
+	width: 120px;
+	height: 40px;
+	background: #07B6E6;
+	display: inline-block;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	vertical-align: top;
+	cursor: pointer;
+}
+#searchbtn:hover, #returnbtn:hover{
+	opacity: 0.7;
+}
+#searchbtn{
+	background: #fe0100;
+}
+
+#introduce {
+	width: 300px;
+	min-height: 150px;
+	box-sizing: border-box;
+	padding: 0 15px;
+	/*border: 1px solid #08B5E6;*/
+	box-shadow: 0 0 5px #ccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background: white;
+	position: absolute;
+	z-index: 5;
+	text-align: left;
+	display: none;
+}
+
+#introduce>img{
+	width: 13px;
+	height: 7px;
+	margin-top: -30px;
+	margin-left: 50px;
+}
+
+#introduce>h3 {
+	font-size: 15px;
+	color: #333333;
+}
+
+#introduce>h3>p {
+	font-size: 14px;
+	color: #666666;
+}
+#introduce>h3>p>span{
+	margin-left: 5px;
+}
+#introduce>h3>p>span:hover{
+	cursor: pointer;
+	color: #333333;
+}
+#introduce>p {
+	font-size: 14px;
+	color: #666666;
+}
+#lianjie{
+	display: inline-block;
+	font-weight: 100;
+}
+#explain{
+	display: inline-block; 
+	margin-left: 10px;
+	font-weight: 100;
+}

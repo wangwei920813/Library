@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数字资源制作与管理</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+    <link rel="stylesheet" type="text/css" href="css/nanoscroller.css"/>
+    <link rel="stylesheet" type="text/css" href="css/make.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/jquery.nanoscroller.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+    	/*分页器样式*/
+			.tcdPageCode,.tcdPageCode2,.tcdPageCode3, .tcdPageCode4{padding: 25px 0px 20px 0px; text-align: left;color: #ccc;text-align:center;}
+			.tcdPageCode a,.tcdPageCode2 a,.tcdPageCode3 a, .tcdPageCode4 a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+			.tcdPageCode a:hover,.tcdPageCode2 a:hover,.tcdPageCode3 a:hover, .tcdPageCode4 a:hover{text-decoration: none;border: 1px solid #428bca;}
+			.tcdPageCode span.current,.tcdPageCode2 span.current,.tcdPageCode3 span.current,.tcdPageCode4 span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #428bca;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+			.tcdPageCode span.disabled,.tcdPageCode2 span.disabled,.tcdPageCode3 span.disabled,.tcdPageCode4 span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
+			#number{width: 40px;height: 18px;margin: 0;margin-left: 20px;}
+			.record{display: inline-block;}
+			#jump{display: inline-block;height:28px;padding-left: 10px;vertical-align: top;line-height: 28px;cursor: pointer;}
+			/*分页器样式**结束*/
+        .foot{
+            width: 100%;
+            height: 80px;
+            color: white;
+            background: #07b5e6;
+        }
+        .foot>p{
+            line-height: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" id="app">
+        <div class="top">
+            <img src="img/blue.png"/> <p>佛山市图书馆</p>
+            <ul class="logoin">
+                <li>登录</li>
+                <li>注册</li>
+                <li>联系客服</li>
+            </ul>
+        </div>
+        <div class="title">
+            <ul class="slider">
+                <li>首页</li>
+                <li class="sliders">创建个人出版物</li>
+                <li>我的出版物</li>
+                <div id="sousuo">
+                    <input type="text" name="" id="dataname" value="" placeholder="输入数据库名称" />
+                    <input type="button" name="" id="datasousuo" value="搜索" />
+                </div>
+            </ul>
+        </div>
+        <div class="process">
+    		<img src="img/xuanze_03.png" alt="" />
+    		<img src="img/xuanze_04.png" alt="" />
+    		<img src="img/xuanze_05.png" alt="" />
+    	</div>
+    	
+    	<!--选择模板-->
+        <div class="content">
+        	<div class="con-left">
+        		<p class="xxx">普通电子书</p>
+        		<p>电子期刊</p>
+        		<p>普通电子报纸</p>
+        		<p>古籍类的电子书</p>
+        	</div>
+        	<div class="con-right">
+        		<ul>
+        			<li><img src="img/shu_03.png"/><div class="black"><p>使用模板</p></div></li>
+        			<li><img src="img/shu_09.png"/><div class="black"><p>使用模板</p></div></li>
+        			<li><img src="img/shu_07.png"/><div class="black"><p>使用模板</p></div></li>
+        			<li><img src="img/shu_09.png"/><div class="black"><p>使用模板</p></div></li>
+        			<li><img src="img/a.jpg"/><div class="black"><p>使用模板</p></div></li>
+        			<li><img src="img/b.jpg"/><div class="black"><p>使用模板</p></div></li>
+        			<li><img src="img/c.jpg"/><div class="black"><p>使用模板</p></div></li>
+        			<li><img src="img/d.jpg"/><div class="black"><p>使用模板</p></div></li>
+        		</ul>
+        		<!--分页器-->
+				<div class="tcdPageCode"></div>
+        	</div>
+        </div>
+        <!--模板内容编辑-->
+        <div class="content1">
+        	<div class="con-left1 nano" id="about">
+        		<div class="nano-content">
+	        		<div class="template">
+	        			<p>1</p>
+	        			<div id="templateline">
+	        				
+	        			</div>
+	        		</div>
+	        		<div class="template">
+	        			<p>2</p>
+	        			<div id="">
+	        				
+	        			</div>
+	        		</div>
+	        		<div class="template">
+	        			<p>3</p>
+	        			<div id="">
+	        				
+	        			</div>
+	        		</div>
+	        		<div class="template">
+	        			<p>4</p>
+	        			<div id="">
+	        				
+	        			</div>
+	        		</div>
+	        		<div class="template">
+	        			<p>5</p>
+	        			<div id="">
+	        				
+	        			</div>
+	        		</div>
+	        		<div class="template">
+	        			<p>6</p>
+	        			<div id="">
+	        				
+	        			</div>
+	        		</div>
+	        	</div>
+        	</div>
+        	<div class="con-right1">
+        		
+        	</div>
+        	<div class="bottom">
+        		<div class="treaty" data-toggle="modal" data-target="#myModal">
+        			<img src="img/bdui_03.png"/>
+        			<p>签订《个人出版平台协议》</p>
+        		</div>
+        		<button id="btn" type="button" class="btn btn-success">提交审核</button>
+        		<button id="cun" type="button" class="btn btn-success">保存</button>
+        		<button id="pre" type="button" class="btn btn-success">预览</button>
+        	</div>
+        </div>
+        <!--预览-->
+        <!--<div class="pre">
+        	<button id="tui" type="button" class="btn">退出</button>
+        </div>-->
+		<!-- 个人出版平台协议模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/x-1000_03.png"/></button>
+		                <h4 class="modal-title" id="myModalLabel">个人出版平台协议</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<h2>个人出版平台协议书</h2>
+		            </div>
+		            <div class="modal-footer">
+		            	<label>
+		            		<img src="img/bdui_03.png" alt="" />
+			            	<p>同意</p>
+		            	</label>
+			            	
+		                <!--<button type="button" id="queding" class="btn btn-default" data-dismiss="modal">确定</button>
+		                <button type="button" class="btn btn-primary">提交更改</button>-->
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		</div>
+        
+        <div class="foot">
+            <p>地址：佛山市佛山新城华康道11号(新馆) 邮编：528000 总机：0757-28360000 粤ICP备05083431号-5 粤 公网安备44060402000039号</p>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>-->
+<script>
+    $(function(){
+    	//阻止默认事件
+    	$(document).bind("selectstart", function () { return false; });
+        //导航首页点击
+        $(".slider>li").on('click',function(){
+            $(".slider>li").removeClass('sliders');
+            $(this).addClass('sliders');
+            if($(this).index()==0){
+            	window.location.href = 'index.html';
+            }else if($(this).index()==1){
+            	window.location.href = 'make.html';
+            }else if($(this).index()==2){
+            	window.location.href = 'publication.html';
+            }
+        })
+        //左侧资源库点击
+        $('.con-left>p').on('click',function(){
+        	$('.con-left>p').removeClass('xxx');
+        	$(this).attr('class','xxx');
+        	var index = $(this).index();
+        	var imghtml = ''
+        	switch (index){
+				case 0:
+				    imghtml = '<li><img src="img/shu_03.png"/><div class="black"><p>使用模板</p></div></li>'+
+                    '<li><img src="img/shu_09.png"/><div class="black"><p>使用模板</p></div></li>'+
+                    '<li><img src="img/h.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                    '<li><img src="img/a.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                    '<li><img src="img/b.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                    '<li><img src="img/c.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                    '<li><img src="img/d.jpg"/><div class="black"><p>使用模板</p></div></li>';
+				    $('.con-right>ul').html(imghtml);
+				    break;
+				case 1:
+                    imghtml = '<li><img src="img/e.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/f.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/b.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/g.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/c.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/d.jpg"/><div class="black"><p>使用模板</p></div></li>';
+                        '<li><img src="img/e.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/a.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                    $('.con-right>ul').html(imghtml);
+                    break;
+                case 2:
+                    imghtml = '<li><img src="img/l.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/i.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/m.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/k.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/g.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                    '<li><img src="img/m.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                    '<li><img src="img/h.jpg"/><div class="black"><p>使用模板</p></div></li>';
+                    $('.con-right>ul').html(imghtml);
+                    break;
+                case 3:
+                    imghtml = '<li><img src="img/n.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/p.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/q.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                        '<li><img src="img/o.jpg"/><div class="black"><p>使用模板</p></div></li>'+
+                    '<li><img src="img/j.jpg"/><div class="black"><p>使用模板</p></div></li>';
+                    $('.con-right>ul').html(imghtml);
+                    break;
+			}
+        })
+        //内容动画部分
+//		$('.con-right>ul>li').addClass('animated rubberBand');
+//		setTimeout(function(){
+//			$('.con-right>ul>li').removeClass('animated rubberBand')
+//		},1000)
+		$(document).on('mouseenter','.con-right>ul>li',function(){
+			$(this).find('.black').css('display','block');
+			$(this).find('img').addClass('animated pulse');
+		})
+		$(document).on('mouseleave','.con-right>ul>li',function(){
+			$(this).find('.black').css('display','none');
+			$(this).find('img').removeClass('animated pulse');
+		})
+		//分页
+		var pagenum = 100;
+		var totalpage = 10;
+		page()
+		function page(){
+			$(".tcdPageCode").createPage({
+				pageCount: totalpage,
+				current: 1,
+				backFn: function(p) {
+					//console.log(p);
+					pagenum = p;
+					console.log(pagenum)
+				}
+			});
+		}
+		
+		//选择模板进入下一步
+		$(document).on('click','.con-right li',function(){
+			window.location.href = 'maket.html';
+//			$('.content').css('display','none');
+//			$('.content1').css('display','block');
+//			//进度条变更
+//			$('.process').find('img:nth-child(1)').attr('src','img/xuanze_11_03.png');
+//			$('.process').find('img:nth-child(2)').attr('src','img/xuanze_11_04.png');
+		})
+		//左侧模板切换
+		$(document).on('click','.nano-content>div',function(){
+			$('.nano-content>div').find('div').attr('id','');
+			$(this).find('div').attr('id','templateline');
+		})
+		$(".nano").nanoScroller();//滚动条插件调用
+		
+		var tongyi = false;//是否同意个人出版平台协议
+		$('.modal-footer>label').on('click',function(){
+			tongyi = !tongyi;
+			if(tongyi){
+				$(this).find('img').attr('src','img/dui_03.png');
+			}else{
+				$(this).find('img').attr('src','img/bdui_03.png');
+			}
+			$('#myModal').modal('hide');
+		})
+		$('#myModal').on('hidden.bs.modal',function(){
+		  // 执行一些动作...
+		  if(tongyi){
+				$('.treaty').find('img').attr('src','img/dui_03.png');
+			}else{
+				$('.treaty').find('img').attr('src','img/bdui_03.png');
+			}
+		})
+		//预览
+		$('#pre').on('click',function(){
+			$('.content1').css('display','none');
+			$('.pre').css('display','block');
+		})
+		//预览退出
+		$('#tui').on('click',function(){
+			$('.pre').css('display','none');
+			$('.content1').css('display','block');
+		})
+		//保存
+		$('#cun').on('click',function(){
+			
+		})
+		//提交审核
+		$('#btn').on('click',function(){
+			
+		})
+})
+</script>
+</html>

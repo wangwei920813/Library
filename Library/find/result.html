@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>佛山图书馆资源发现系统</title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/headerfoot.css"/>
+		<link rel="stylesheet" type="text/css" href="css/result.css"/>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="title">
+				<img class="logo" src="img/logo.png"/>
+				<p class="title-p">佛山图书馆资源发现系统</p>
+				<div class="logoin">
+					<p class="user"><img src="img/1509005188(1).jpg"/>阿波罗</p>
+					<p class="tilu">题录</p>
+					<p class="tc">退出</p>
+				</div>
+			</div>
+			<div class="image">
+				<img src="img/(1).jpg"/>
+				<p></p>
+			</div>
+			<div class="content">
+				<p class="title-1">资源导航</p>
+				<div class="content-c">
+					<div class="con-left">
+
+					</div>
+					<div class="con-right">
+						<div class="erci">
+							<ul class="list">
+								<!--<li class="ercic">全部</li>
+								<li>图书</li>
+								<li>期刊</li>
+								<li>报纸</li>
+								<li>学位论文</li>
+								<li>会议论文</li>
+								<li>专利</li>
+								<li>标准</li>
+								<li>知识库</li>-->
+							</ul>
+							<div class="ercitxt">
+								<input id="ipt1" name="tn" type="hidden" value="baidu" >
+								<input type="text" id="ercitxt" value="" name="word" maxlength="8048" value="" placeholder="" baiduSug=1 onmouseover="focus()" />
+								<input type="button" name="" id="ch" value="中文检索" />
+								<input type="button" name="" id="en" value="外文检索" />
+								<div class="bbb">
+									<input type="button" name="" id="senior" value="高级检索" />
+									<input type="button" name="" id="major" value="专业检索" />
+								</div>
+							</div>
+							<ul class="option">
+								<!--<li><img src="img/dian_06.png"/> 二次搜索</li>-->
+							</ul>
+						</div>
+						<p class="datanum">当前检索结果：<span></span></p>
+						<div class="condition">
+							<p>排序方式：<select name="" id="sort">
+
+							</select></p>
+							<p>每页展示：<select id="shownum" name="" style="width: 110px;">
+								<option value="15">15</option>
+								<option value="20">20</option>
+							</select></p>
+							<p>文摘下载</p>
+						</div>
+						<ul class="con-book">
+							<!--<li>-->
+								<!--<div class="book-le">-->
+									<!--<img src="img/1509088041(1).jpg"/>-->
+									<!--<div class="dui"></div>-->
+								<!--</div>-->
+								<!--<div class="book-ri">-->
+									<!--<div class="heat">-->
+										<!--<p>搜索热度：<span>999</span></p>-->
+									<!--</div>-->
+									<!--<p class="booktitle">【图书】天龙八部</p>-->
+									<!--<div class="bookdetailed">-->
+										<!--<p>作者：<span>萝卜</span></p>-->
+										<!--<p>出处：<span>阿拉德大陆</span></p>-->
+										<!--<p>ISBN：<span>000215845</span></p>-->
+									<!--</div>-->
+									<!--<ul class="labels">-->
+										<!--<li></li>-->
+										<!--<li></li>-->
+										<!--<li></li>-->
+										<!--<li></li>-->
+										<!--<li></li>-->
+										<!--<li></li>-->
+										<!--<li></li>-->
+										<!--<li></li>-->
+									<!--</ul>-->
+									<!--<div class="erweima">-->
+										<!--二维码-->
+									<!--</div>-->
+									<!--<div class="baocun">-->
+										<!--保存题目-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</li>-->
+						</ul>
+						<div class="literature2" style="display: none;">
+							<img src="img/16_03.png"/>
+							<p>搜索结果为空，您可以尝试<span class="yuanwen">原文传递</span></p>
+						</div>
+						<!--分页器-->
+						<div class="tcdPageCode"></div>
+					</div>
+				</div>
+			</div>
+			<div class="foot">
+				<p>地址：佛山市佛山新城华康道（新馆） 邮编：528000 总机：0757-28360000</p>
+				<p>粤ICP备05083431号-5粤公安网安备44060402000039号</p>
+			</div>
+			<!--高级检索-->
+			<div style="display: none;" class="modal fade modal1" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header modal1-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/x-1000_03.png"/></button>
+							<h4 class="modal-title" style="line-height: 40px;">个性化检索</h4>
+						</div>
+						<div class="modal-body modal1-body">
+							<div class="name" style="opacity: 0">
+								检索名称：<input type="text" id="name" /> <span id="fanhui">返回简单检索</span>
+							</div>
+							<div class="literature">
+								<div class="top">
+									<div class="top-le">
+										文献类型选择：
+									</div>
+									<div class="top-ri">
+
+									</div>
+								</div>
+								<div class="bottom">
+									<ul class="botul">
+										<span>+</span>
+										<span>-</span>
+										<li>
+											<select name="" class="sel2">
+												<option value="">全部字段</option>
+											</select>
+											<input type="text" name="" value="" class="txt" />
+											<select name="" class="sel3">
+												<option value="0">全部</option>
+												<option value="1">精确</option>
+											</select>
+										</li>
+										<li>
+											<select name="" class="sel1">
+												<option value="and">与</option>
+												<option value="or">或</option>
+											</select>
+											<select name="" class="sel2">
+												<option value="">全部字段</option>
+											</select>
+											<input type="text" name="" value="" class="txt" />
+											<select name="" class="sel3">
+												<option value="0">全部</option>
+												<option value="1">精确</option>
+											</select>
+										</li>
+										<li>
+											<select name="" class="sel1">
+												<option value="and">与</option>
+												<option value="or">或</option>
+											</select>
+											<select name="" class="sel2">
+												<option value="">全部字段</option>
+											</select>
+											<input type="text" name="" value="" class="txt" />
+											<select name="" class="sel3">
+												<option value="0">全部</option>
+												<option value="1">精确</option>
+											</select>
+										</li>
+									</ul>
+									<p style="margin-top: 10px;font-size: 14px;">说明：高级检索多个条件检索是按照顺序运算的：如A或B与C 即：(A或B)与C</p>
+								</div>
+								<p class="datap">数据库选择：</p><div class="data">
+							</div>
+								<p class="language">语种：
+									<select name="" id="language">
+										<option value="">请选择</option>
+									</select>
+									<span style="margin-left: 65px;">成员馆：</span>
+									<select name="" id="member">
+										<option value="">请选择</option>
+									</select>
+								</p>
+								<p class="yesear">年份：
+									<select name="" id="startmember">
+										<option value="">开始的年份</option>
+									</select>
+									至
+									<select name="" id="endmember">
+										<option value="">结束的年份</option>
+									</select>
+								</p>
+								<p class="datanumber">每页显示条数：
+									<label><input class="tiaoshu" name="datanumber" type="radio" value="15" checked="checked" />15</label>
+									<label><input class="tiaoshu" name="datanumber" type="radio" value="20" />20</label>
+								</p>
+								<!--<p class="display">只显示：-->
+								<!--<label><input class="xianshi" name="display" type="radio" value="0" checked="checked" />馆藏书目</label>-->
+								<!--<label><input class="xianshi" name="display" type="radio" value="1" />电子书目</label>-->
+								<!--</p>-->
+								<div class="btns">
+									<div id="searchbtn">检索</div>
+									<div id="returnbtn">返回简单检索</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--题录-->
+			<div class="modal fade modal2" id="mytilu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header modal2-header">
+			                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/x-1000_03.png"/></button>
+			                <h4 class="modal-title" style="height: 100%;line-height: 41px;">题录</h4>
+			            </div>
+			            <div class="modal-body modal2-body">
+			            	<p class="title1">已保存的题录2</p>
+			            	<p class="title2">输出格式
+			            	<select name="format">
+			            		<option value="1">电子邮件</option>
+			            		<option value="2">打印</option>
+			            		<option value="3">doc</option>
+			            		<option value="4">txt</option>
+			            	</select></p>
+			            	<p class="title3">选择输出字段：</p>
+		            		<ul class="ziduan">
+			            		<li>出处</li>
+			            		<li>关键词</li>
+			            		<li>摘要</li>
+			            		<li>链接</li>
+			            	</ul>
+			            	<ul class="con">
+			            		<li>
+			            			<div class="li-left">
+			            				<img src="img/book.png"/>
+			            			</div>
+			            			<div class="li-right">
+			            				<h3>[图书]贞观之治</h3>
+			            				<p>作者：某某某</p>
+			            				<p>出处：某某某出版社</p>
+			            				<p>ISBN：987-654-321</p>
+			            			</div>
+			            		</li>
+			            		<li>
+			            			<div class="li-left">
+			            				<img src="img/book.png"/>
+			            			</div>
+			            			<div class="li-right">
+			            				<h3>[图书]贞观之治</h3>
+			            				<p>作者：某某某</p>
+			            				<p>出处：某某某出版社</p>
+			            				<p>ISBN：987-654-321</p>
+			            			</div>
+			            		</li>
+			            	</ul>
+			            	<div class="export">
+			            		导出
+			            	</div>
+			            </div>
+			            <!--<div class="modal-footer">
+			                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			                <button type="button" class="btn btn-primary">提交更改</button>
+			            </div>-->
+			        </div>
+			    </div>
+			</div>
+			<!--文献传递-->
+			<div class="modal fade preview" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header modal0-header">
+			                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/x-1000_03.png"/></button>-->
+			                <h4 class="modal-title" >文献传递</h4>
+			            </div>
+			            <div class="modal-body">
+			            	<p>咨询标题：<input type="text" /></p>
+			            	<p>电子邮箱：<input type="text" /></p>
+			            	<p class="font">请填写有效的email邮箱地址，如填写有误，您将无法查收到所申请的内容！</p>
+			            	<p style="margin: 10px 0;">咨询类型：<select name="" id="">
+			            		<option value="0">提问</option>
+			            		<option value="0">专家提问</option>
+			            		<option value="0">科学</option>
+			            		<option value="0">图书馆一般的问题</option>
+			            	</select></p>
+			            	<div>
+			            		<p style="display: inline-block;">咨询描述：</p>
+			            		<textarea class="describe" name="" rows="" cols="" placeholder="内容不超过200字"></textarea>
+			            	</div>
+			            	<p style="margin: 10px 0;">是否公开：<label><input type="radio" name="open" value="" />是</label><label><input type="radio" name="open" value="" />否</label><span class="font">选择公开，所有读者都会看到您的问题！</span></p>
+			            	<p>是否匿名：<label><input type="radio" name="anonymous" value="" />是</label><label><input type="radio" name="anonymous" value="" />否</label><span class="font">选择匿名，所有读者都会看到您的姓名！</span></p>
+			            <div class="verification">
+			            	<p>验证码：<input type="text"   id="inputCode" /></p>
+					        <div class="code" id="checkCode" onclick="createCode()"oncopy="return false"></div>
+					        <a  href="javascript:void(0)" onclick="createCode()">看不清换一张(不区分大小写)</a>
+					        <input id="Button1"  onclick="validateCode();" type="button" value="确定" />
+					    </div>
+			            </div>
+			            <!--<div class="modal-footer">
+			                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			                <button type="button" class="btn btn-primary">提交更改</button>
+			            </div>-->
+			        </div>
+			    </div>
+			</div>
+			<!--问题反馈-->
+			<div class="modal fade" id="wenti" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header wenti-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/x-1000_03.png"/></button>
+							<h4 class="modal-title">问题反馈</h4>
+						</div>
+						<div class="modal-body wenti-body">
+							<p>问题链接：<input type="text" id="wentiurl"></p>
+							<p>问题描述：<textarea name="" id="wentitext" cols="30" rows="10" style="resize: none;width: 435px;padding: 4px 6px;line-height: 1.4rem;"></textarea></p>
+							<p id="wentibtn">提交</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery2.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/addURL.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/result.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicCondition.js"></script>
+	<script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
+	<script>
+		var pagebol = false;//辅助搜索判断是本页搜索还是跳转来的搜索
+        document.getElementById("ercitxt").focus();
+        var txtObj = document.getElementById("alertSpan");
+        //回调函数，用于获取用户当前选择的文字
+        function show(str){
+            txtObj.innerHTML = str;
+        }
+        var params = {
+            "XOffset": 0,   //提示框位置横向偏移量,单位px
+            "YOffset": 0,   //提示框位置纵向偏移量,单位px
+            "width": 204,   //提示框宽度，单位px
+            "fontColor": "#666",  //提示框文字颜色
+            "fontColorHI": "#222",  //提示框高亮选择时文字颜色
+            "fontSize": "16px",  //文字大小
+            "fontFamily": "微软雅黑", //文字字体
+            "borderColor": "#d8d8d8", //提示框的边框颜色
+            "bgcolorHI": "#e8e8e8",  //提示框高亮选择的颜色
+            "sugSubmit": true,  //在选择提示词条是是否提交表单
+        };
+        BaiduSuggestion.bind("ipt1",params,show);
+		var times = '';
+        var user = 317;
+        var sorts = '';//排序方式
+        //分页
+        var pagenum = 1;
+        var totalpage = '';
+        var searchnum = '';//分页判断高级搜索还是普通搜索
+        if(window.location.search!=''){
+            var dataurl = window.location.search.split("?")[1].split("&");//截取参数并修改
+//        decodeURI();//url转码
+            var seniorbol = decodeURI(dataurl[10]); //判断是高级搜索还是普通搜索
+			if(seniorbol=='true'){
+				user = decodeURI(dataurl[0]);//用户id
+				resourcetype = decodeURI(dataurl[1]);//文献类型id
+				detail = decodeURI(dataurl[2]);//与或的搜索数组
+				database = decodeURI(dataurl[3]);//数据库id
+				language = decodeURI(dataurl[4]);//搜索语种
+				member = decodeURI(dataurl[5]);//成员馆id
+				startyear = decodeURI(dataurl[6]);//开始年份
+				endyear = decodeURI(dataurl[7]);//结束年份
+				num = decodeURI(dataurl[8]);//每页显示的数
+				pagenum = decodeURI(dataurl[9]);//第几页
+				//高级搜索
+				searchnum = 0;
+				//$('.tcdPageCode').remove();
+				booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts);
+				booksearchleft();
+				page();
+                $('#sort').on('change',function () {
+                    sorts = $(this).val();
+                    booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts);
+                })
+			}else{
+				user = decodeURI(dataurl[0]);
+				erciclick = decodeURI(dataurl[1]);//文献id
+				chen = decodeURI(dataurl[2]);//语种
+				ercival = decodeURI(dataurl[3]);//二级搜索值
+				pagenum = decodeURI(dataurl[4]);//当前页码
+				searchval = decodeURI(dataurl[5]);//搜索内容
+				database2 = decodeURI(dataurl[6]);//数据库id
+				yeares = decodeURI(dataurl[7]);//出版日期
+				menber = decodeURI(dataurl[8]);//成员馆
+	//            pagenum = decodeURI(dataurl[9]);
+				searchnum = 1;
+				num = 15;
+				//$('.tcdPageCode').remove();
+				simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+				booksearchleft2(erciclick,chen,ercival,pagenum,searchval,database2,yeares,menber);
+				page()
+                $('#sort').on('change',function () {
+                    sorts = $(this).val();
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+                })
+			}
+        }
+        //左侧浮动
+        $(window).scroll(function(event){
+            var scrtop = $('.content-c').offset().top-$(window).scrollTop();
+            if(scrtop<=0){
+				$('.con-left').addClass('con-left1');
+			}else{
+                $('.con-left').removeClass('con-left1');
+			}
+        });
+        $(window).on('resize',function(){
+            var conleft = $('.content-c').offset().left;
+            $('.con-left1').css('left',conleft);
+		})
+        //信息+
+        var optionnum = 3;
+        $('.botul>span:nth-child(1)').on('click',function(){
+            // console.log(optionnum)
+            if(optionnum>4){
+                alert("最多支持五条");
+                return
+            }
+            var html = '<li>'+
+                '<select name="" class="sel1">'+
+                '<option value="and">与</option>'+
+                '<option value="or">或</option>'+
+                '</select> '+
+                '<select name="" class="sel2">'+
+                erjicon+
+                '</select> '+
+                '<input type="text" name="" value="" class="txt" /> '+
+                '<select name="" class="sel3">'+
+                '<option value="0">全部</option>'+
+                '<option value="1">精确</option>'+
+                '</select>'+
+                '</li>';
+            $('.botul').append(html);
+            optionnum++
+        })
+        //信息-
+        $('.botul>span:nth-child(2)').on('click',function(){
+            $('.botul>li:last-child').remove();
+        })
+        //高级搜索一级
+        yiji();
+        function yiji(){
+            $.ajax({
+                url:getURL()+"webservice/service/find/selectFindResourceClassification",
+                type:"get",
+                async:true,
+                dataType:"json",
+                success:function (data) {
+                    var html = '<p class="clickp"><input name="literature" type="radio" checked="checked" value="'+data.data[0].id+'">'+data.data[0].name+' </p>';
+                    for (var i = 1; i < data.data.length; i++) {
+                        html += '<p class="clickp"><input name="literature" type="radio" value="'+data.data[i].id+'">'+data.data[i].name+' </p>';
+                    }
+                    $('.top-ri').html(html);
+                    erji(data.data[0].id);
+                    $(".clickp").on('click',function(){
+                        $('input[name=literature]').removeAttr('checked')
+                        $(this).find('input').prop('checked','checked');
+                        var andorid = $(this).find('input').val()
+                        erji(andorid);
+                    })
+                }
+            })
+        }
+        //高级搜索二级
+        var erjicon = '';//保存下拉信息在+时调用
+        function erji(id){
+            $.ajax({
+                url:getURL()+"webservice/service/find/selectFindDocumenttype?type="+id,
+                type:"get",
+                async:true,
+                dataType:"json",
+                success:function (data) {
+                    // console.log(data)
+                    var html = '';
+                    for (var i = 0; i < data.data.length; i++){
+                        html += '<option value="'+data.data[i].propertyName+'">'+data.data[i].name+'</option>';
+                    }
+                    $('.sel2').html(html)
+                    erjicon = html;
+                }
+            })
+        }
+        //模态框关闭时清空所有选项
+        $('#myModal').on('hidden.bs.modal', function () {
+            $('#name,.txt').val('');
+            yiji();
+            $('.sel1').val('and');
+            $('.sel3').val('0');
+            jsku();
+            language1();
+            cyg();
+            $('input[name=datanumber],input[name=display]').removeAttr('checked');
+            $(".tiaoshu").eq(0).prop('checked','checked');
+            $(".xianshi").eq(0).prop('checked','checked');
+            $('#startmember').html('<option value="">开始的年份</option>');
+            $('#endmember').html('<option value="">结束的年份</option>');
+            yeartime();
+            $('.botul>li').eq(2).nextAll().remove();
+        })
+        //高级搜索数据库选择
+        jsku();
+        function jsku(){
+            $.ajax({
+                url:getURL()+"webservice/service/find/selectFindRepository",
+                type:"get",
+                async:true,
+                dataType:"json",
+                success:function(data){
+                    var html = "";
+                    for (var i = 0; i < data.data.length; i++) {
+                        html+='<label>'+data.data[i].name+'<input name="data" type="checkbox" value="'+data.data[i].id+'"></label>'
+                    }
+                    $('.data').html(html)
+                }
+            })
+        }
+        //语种
+        language1();
+        function language1(){
+            $.ajax({
+                url:getURL()+"webservice/service/find/selectDict?typeCode=langCode",
+                type:"get",
+                async:true,
+                dataType:"json",
+                success:function(data){
+                    // console.log(data)
+                    var html = '';
+                    for(var i = 0; i < data.data.length; i++){
+                        html += "<option value='"+data.data[i].id+"'>"+data.data[i].name+"</option>"
+                    }
+                    $("#language").html(html)
+                }
+            })
+        }
+        //成员馆
+        cyg();
+        function cyg(){
+            $.ajax({
+                url:getURL()+"webservice/service/find/selectHouse",
+                type:"get",
+                async:true,
+                dataType:"json",
+                success:function(data){
+                    var html = '';
+                    for (var i = 0; i < data.data.length; i++){
+                        html += "<option value='"+data.data[i].id+"'>"+data.data[i].name+"</option>"
+                    }
+                    $('#member').html(html)
+                }
+            })
+        }
+        //设置年份的选择
+        yeartime();
+        function yeartime(){
+            var myDate= new Date();
+            var startYear=myDate.getFullYear()-50;//起始年份
+            var endYear=myDate.getFullYear()+50;//结束年份
+            var html = '<option value="0">开始的年份</option>';
+            for (var i=startYear;i<=endYear;i++){
+                html += '<option value="'+i+'">'+i+'</option>'
+            }
+            $('#startmember').html(html)//.val(myDate.getFullYear());//定位到当年
+            $('#startmember').on("change", function(){
+                html = '<option value="0">结束的年份</option>';
+                for (var j=this.value; j<=endYear; j++){
+                    if(j==0){
+                        return false;
+                    }
+                    html += '<option value="'+j+'">'+j+'</option>'
+                }
+                $('#endmember').html(html)//.val(myDate.getFullYear());//定位到当年
+            })
+        }
+        //分类排序
+        $.ajax({
+            url:getURL()+"webservice/service/find/getSort",
+            type:"get",
+            async:true,
+            dataType:"json",
+            success:function(data){
+//                console.log(data)
+                var html = '<option value="">默认</option>';
+                for(var i = 0;i<data.data.length;i++){
+                    html+='<option value="'+data.data[i].id+'">'+data.data[i].name+'</option>';
+                }
+                $('#sort').html(html)
+            }
+        })
+		$('#sort').on('change',function(){
+			sorts = $(this).val();
+			booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts);
+		})
+        //每页显示数
+		$('#shownum').on('change',function(){
+		    num=$(this).val();
+            booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts);
+		})
+        // 高级搜索 搜索接口
+        $(document).on('click','#searchbtn',function(){
+            $('#sort').off('change');
+            $('#shownum').off('change');
+            searchnum = 0;
+            sorts='';
+            record();
+            //$('.tcdPageCode').remove();
+            pagereset();
+            booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts);
+            booksearchleft();
+            $('#myModal').modal('hide');
+            page();
+            // var a = "{'user':'"+user+"','resourcetype':'"+resourcetype+"',detail:["+detail+"],'database':'"+database+"','language':'"+language+"','member':'"+member+"','startyear':'"+startyear+"','endyear':'"+endyear+"','num':'"+num+"'}"
+            $('#sort').on('change',function () {
+                sorts = $(this).val();
+                booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts);
+            })
+            $('#shownum').on('change',function(){
+                num=$(this).val();
+                console.log(num)
+                booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts)
+			})
+		})
+		//高级搜索
+		function booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts) {
+            $.ajax({
+				url:getURL()+"webservice/service/find/advanceSearch",
+//              url:"http://192.168.0.147:8080/webservice/service/find/advanceSearch",
+                type:"post",
+                async:false,
+                dataType:"json",
+                data:"{'user':'"+user+"','resourcetype':'"+resourcetype+"',detail:["+detail+"],'database':'"+database+"','language':'"+language+"','member':'"+member+"','startyear':'"+startyear+"','endyear':'"+endyear+"','num':'"+num+"','page':'"+pagenum+"','times':'"+times+"','sorts':'"+sorts+"'}",
+//				data:"{'user':'317','resourcetype':'1',detail:[{'andOr':'','searchName':'100','accurate':'0','name':'QK_ISSN'},{'andOr':'or','searchName':'文','accurate':'0','name':'QK_TITLE'},{'andOr':'and','searchName':'','accurate':'0','name':'ALL'}],'database':'46,','language':'88','member':'1','startyear':'1985','endyear':'2040','num':'15',''}",
+                success:function(data){
+				    console.log(data)
+				    if (data.data.total=='0'){
+				        $('.con-book').html('');
+				        $('.literature2').css('display','block');
+				        //$('.tcdPageCode').remove();
+				        return false;
+                    }else{
+                        $('.literature2').css('display','none');
+                    }
+                    $('.datanum>span').html(data.data.total)
+//                    console.log(pagenum,user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum)
+                    totalpage = Math.ceil(data.data.total/15);
+//                  $('.con-right').append('<div class="tcdPageCode"></div>');
+                    // $('#myModal').modal('hide');
+					var html = '';
+                    for(var i = 0; i < data.data.list.length;i++){
+                        var jconname = ''
+                        for (var j = 0;j<data.data.list[i].iconName.split('、').length-1; j++){
+                            jconname += '<li>'+data.data.list[i].iconName.split('、')[j].split('&')[0]+'<input type="hidden" value="'+data.data.list[i].iconName.split('、')[j].split('&')[1]+'"/></li>'
+						}
+                        var datahidden = classification(data.data.list[i].type,data.data.list[i]);
+                        html+=datacontent(data.data.list[i],datahidden,jconname);
+					}
+                    $('.con-book').html(html)
+                }
+            })
+        }
+        // 高级搜索的辅助搜索
+        function booksearchleft(){
+            $.ajax({
+                url:getURL()+"webservice/service/find/assistSearch",
+//                 url:"http://192.168.0.147:8080/webservice/service/find/assistSearch",
+                type:"post",
+                async:true,
+                dataType:"json",
+                data:"{'user':'"+user+"','resourcetype':'"+resourcetype+"',detail:["+detail+"],'database':'"+database+"','language':'"+language+"','member':'"+member+"','startyear':'"+startyear+"','endyear':'"+endyear+"','num':'"+num+"','page':'"+pagenum+"'}",
+                success:function(data){
+//                    console.log(data)
+                    var html = '';
+                    for (var i = 0; i < data.data.length; i++){
+                        var datali = '';
+                        for(var j = 0; j < data.data[i].list.length; j++){
+                            if(data.data[i].NAME=='成员馆'){
+                                datali += '<li><input type="checkbox" name="library" style="margin: 0;" value="'+data.data[i].list[j].id+'">'+data.data[i].list[j].name+'('+data.data[i].list[j].num+')</li>'
+                            }else{
+                                datali += '<li>'+data.data[i].list[j].name+'('+data.data[i].list[j].num+')<input type="hidden" value="'+data.data[i].list[j].id+'"></li>'
+                            }
+                        }
+                        if(i==0){
+                            html = '<div>'+
+                                '<div id="jiao" data-toggle="collapse" data-parent="#accordion" href="#collapseOne'+i+'"><img src="img/bjiao.png"><p>'+data.data[i].NAME+'</p></div>'+
+                                '<ul id="collapseOne'+i+'" class="ulli collapse in">'+
+                                datali+
+                                '</ul>'+
+                                '</div>'
+                        }else{
+                            html += '<div>'+
+                                '<div id="" data-toggle="collapse" data-parent="#accordion" href="#collapseOne'+i+'"><img src="img/jiao.png"><p>'+data.data[i].NAME+'</p></div>'+
+                                '<ul id="collapseOne'+i+'" class="ulli collapse">'+
+                                datali+
+                                '</ul>'+
+                                '</div>'
+                        }
+                    }
+                    html+='<p class="wenti"><img src="img/2_03.png"/><span>问题反馈</span></p>'
+                    $('.con-left').html(html);
+                    seniorbol = true;
+                }
+            })
+        }
+        //简单搜索
+        var chen = ''//中文、外文
+        var searchval = ''//搜索内容
+        var database2 = ''//数据库
+        var yeares = ''//年份
+        var menber = ''//成员馆藏
+        $('#ch,#en').on('click', function () {
+            sorts='';
+            $('#sort').off('change');
+            $('#shownum').off('change');
+            if ($('#ercitxt').val()==''){
+                return false;
+            }
+            if ($(this).attr('id')=='ch'){
+                chen = 87;
+            }else{
+                chen = 88;
+            }
+            database2 = '';
+            yeares = '';
+            menber = '';
+            searchval = $('#ercitxt').val();
+            pagenum = 1;
+            searchnum = 1;
+            totalpage = '';
+            //$('.tcdPageCode').remove();
+            pagereset();
+            simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+            booksearchleft2(erciclick,chen,ercival,pagenum,searchval,database2,yeares,menber);
+            page();
+            pagebol=true;
+            $('#sort').on('change',function () {
+                sorts = $(this).val();
+                simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+            })
+            $('#shownum').on('change',function () {
+                num = $(this).val();
+                simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+            })
+        })
+        //简单搜索
+		function simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts){
+			$.ajax({
+                url:getURL()+"webservice/service/find/search",
+//                url:"http://192.168.0.147:8080/webservice/service/find/search",
+                type:"post",
+                async:false,
+                dataType:"json",
+				data:"{'resourcetype':'"+erciclick+"','language':'"+chen+"','name':'"+ercival+"','page':'"+pagenum+"','num':'"+num+"','searchName':'"+searchval+"','databases':'"+database2+"','times':'"+yeares+"','members':'"+menber+"','sorts':'"+sorts+"'}",
+                success:function(data){
+					console.log(data)
+                    if (data.data.total=='0'){
+                        $('.con-book').html('');
+                        $('.literature2').css('display','block');
+                        //$('.tcdPageCode').remove();
+                        return false;
+                    }else{
+                        $('.literature2').css('display','none');
+                    }
+                    $('.datanum>span').html(data.data.total)
+                    totalpage = Math.ceil(data.data.total/15);
+//                  $('.con-right').append('<div class="tcdPageCode"></div>');
+                    var html = '';
+                    for(var i = 0; i < data.data.list.length;i++){
+                        var jconname = ''
+                        for (var j = 0;j<data.data.list[i].iconName.split('、').length-1; j++){
+                            jconname += '<li>'+data.data.list[i].iconName.split('、')[j].split('&')[0]+'<input type="hidden" value="'+data.data.list[i].iconName.split('、')[j].split('&')[1]+'"/></li>'
+                        }
+                        var datahidden = classification(data.data.list[i].type,data.data.list[i]);
+						html+=datacontent(data.data.list[i],datahidden,jconname);
+                    }
+                    $('.con-book').html(html)
+                }
+			})
+		}
+		//简单搜索的辅助搜索
+        function booksearchleft2(erciclick,chen,ercival,pagenum,searchval,database2,yeares,menber){
+            $.ajax({
+                url:getURL()+"webservice/service/find/retrievalSearch",
+//                 url:"http://192.168.0.147:8080/webservice/service/find/retrievalSearch",
+                type:"post",
+                async:true,
+                dataType:"json",
+                data:"{'resourcetype':'"+erciclick+"','language':'"+chen+"','name':'"+ercival+"','page':'"+pagenum+"','num':'10','searchName':'"+searchval+"','databases':'"+database2+"','times':'"+yeares+"','members':'"+menber+"'}",
+                success:function(data){
+                    console.log(data)
+                    var html = '';
+                    for (var i = 0; i < data.data.length; i++){
+                        var datali = '';
+                        for(var j = 0; j < data.data[i].list.length; j++){
+                            if(data.data[i].NAME=='成员馆'){
+                                datali += '<li><input type="checkbox" name="library" style="margin: 0;" value="'+data.data[i].list[j].id+'">'+data.data[i].list[j].name+'('+data.data[i].list[j].num+')</li>'
+                            }else{
+                                datali += '<li>'+data.data[i].list[j].name+'('+data.data[i].list[j].num+')<input type="hidden" value="'+data.data[i].list[j].id+'"></li>'
+                            }
+                        }
+                        if(i==0){
+                            html = '<div>'+
+                                '<div id="jiao" data-toggle="collapse" data-parent="#accordion" href="#collapseOne'+i+'"><img src="img/bjiao.png"><p>'+data.data[i].NAME+'</p></div>'+
+                                '<ul id="collapseOne'+i+'" class="ulli collapse in">'+
+                                datali+
+                                '</ul>'+
+                                '</div>'
+                        }else{
+                            html += '<div>'+
+                                '<div id="" data-toggle="collapse" data-parent="#accordion" href="#collapseOne'+i+'"><img src="img/jiao.png"><p>'+data.data[i].NAME+'</p></div>'+
+                                '<ul id="collapseOne'+i+'" class="ulli collapse">'+
+                                datali+
+                                '</ul>'+
+                                '</div>'
+                        }
+                    }
+                    html+='<p class="wenti"><img src="img/2_03.png"/><span>问题反馈</span></p>'
+                    $('.con-left').html(html)
+                    seniorbol = false;
+                }
+            })
+        }
+        //辅助搜索数据库点击
+        $(document).on('click','.con-left>div:nth-child(1) li',function(){
+            sorts='';
+            $("#sort").val('');
+            $('#sort').off('change');
+            $('#shownum').off('change');
+        	pagereset();
+            if(seniorbol){
+                $('input[name=library]').prop("checked",false);
+                var newdatabase = $(this).find('input').val();
+                pagenum = 1;
+                searchnum = 0;
+                totalpage = '';
+                //$('.tcdPageCode').remove();
+                booksearch(user,resourcetype,detail,newdatabase,language,member,startyear,endyear,num,pagenum,times,sorts);
+                page();
+                $('#sort').on('change',function () {
+                    sorts = $(this).val();
+					booksearch(user,resourcetype,detail,newdatabase,language,member,startyear,endyear,num,pagenum,times,sorts);
+
+                })
+                $('#shownum').on('change',function () {
+                    num = $(this).val();
+                    booksearch(user,resourcetype,detail,newdatabase,language,member,startyear,endyear,num,pagenum,times,sorts);
+                })
+            }else{
+            	$('input[name=library]').prop("checked",false);
+                database2 = $(this).find('input').val();
+                pagenum = 1;
+                searchnum = 1;
+                totalpage = '';
+                if(erciclick == ''){
+                	erciclick = '';
+                }else{
+                	erciclick = erciclick;
+                }
+                if(ercival == 'ALL'){
+                	ercival = 'ALL';
+                }else{
+                	ercival = ercival;
+                }
+                yeares = '';
+                menber = '';
+                //$('.tcdPageCode').remove();
+				if(pagebol){
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+				}else{
+                    erciclick = decodeURI(dataurl[1]);//文献id
+                    chen = decodeURI(dataurl[2]);//语种
+                    ercival = decodeURI(dataurl[3]);//二级搜索值
+                    pagenum = decodeURI(dataurl[4]);//当前页码
+                    searchval = decodeURI(dataurl[5]);//搜索内容
+//                    database2 = decodeURI(dataurl[6]);//数据库id
+                    yeares = decodeURI(dataurl[7]);//出版日期
+                    menber = decodeURI(dataurl[8]);//成员馆
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+				}
+                page();
+                var database2_1 = database2;
+                $('#sort').on('change',function () {
+                    sorts = $(this).val();
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2_1,yeares,menber,sorts);
+                })
+                $('#shownum').on('change',function () {
+                    num = $(this).val();
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2_1,yeares,menber,sorts);
+                })
+                database2 = '';
+            }
+        });
+        //辅助搜索资源类型点击
+        $(document).on('click','.con-left>div:nth-child(2) li',function(){
+            sorts='';
+            $("#sort").val('');
+            $('#sort').off('change');
+            $('#shownum').off('change');
+        	pagereset();
+            if(seniorbol){
+                $('input[name=library]').prop("checked",false);
+                var newresourcetype = $(this).find('input').val();
+                pagenum = 1;
+                searchnum = 0;
+                totalpage = '';
+                //$('.tcdPageCode').remove();
+                booksearch(user,newresourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts);
+                page();
+                $('#sort').on('change',function () {
+                    sorts = $(this).val();
+                    booksearch(user,newresourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts);
+                })
+                $('#shownum').on('change',function () {
+                    num = $(this).val();
+                    booksearch(user,newresourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts);
+                })
+            }else{
+            	$('input[name=library]').prop("checked",false);
+                erciclick = $(this).find('input').val();
+                pagenum = 1;
+                searchnum = 1;
+                totalpage = '';
+//                if(ercival == 'ALL'){
+//                	ercival = 'ALL';
+//                }else{
+//                	ercival = ercival;
+//                }
+                yeares = '';
+                database2 = '';
+                menber = '';
+                //$('.tcdPageCode').remove();
+                console.log(erciclick)
+                if(erciclick!==''){
+                    ercival = 'ALL'
+                }
+                if(pagebol){
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+                }else{
+//                    erciclick = decodeURI(dataurl[1]);//文献id
+                    chen = decodeURI(dataurl[2]);//语种
+//                    ercival = decodeURI(dataurl[3]);//二级搜索值
+                    pagenum = decodeURI(dataurl[4]);//当前页码
+                    searchval = decodeURI(dataurl[5]);//搜索内容
+                    database2 = decodeURI(dataurl[6]);//数据库id
+                    yeares = decodeURI(dataurl[7]);//出版日期
+                    menber = decodeURI(dataurl[8]);//成员馆
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+                }
+                page()
+				var erciclick_1 = erciclick;
+                $('#sort').on('change',function () {
+                    sorts = $(this).val();
+                    simplesearch(erciclick_1,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+                })
+                $('#shownum').on('change',function () {
+                    num = $(this).val();
+                    simplesearch(erciclick_1,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+                })
+                erciclick = '';
+            }
+        });
+        //辅助搜索出版日期点击
+        $(document).on('click','.con-left>div:nth-child(3) li',function(){
+            sorts='';
+            $("#sort").val('');
+            $('#sort').off('change');
+            $('#shownum').off('change');
+        	pagereset();
+            if(seniorbol){
+                $('input[name=library]').prop("checked",false);
+                var newtimes = $(this).find('input').val();
+                pagenum = 1;
+                searchnum = 0;
+                totalpage = '';
+				booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,newtimes,sorts);
+                page();
+                $('#sort').on('change',function () {
+                    sorts = $(this).val();
+                    booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,newtimes,sorts);
+                })
+                $('#shownum').on('change',function () {
+                    num = $(this).val();
+                    booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,newtimes,sorts);
+                })
+            }else{
+            	$('input[name=library]').prop("checked",false);
+                yeares = $(this).find('input').val();
+                pagenum = 1;
+                searchnum = 1;
+                totalpage = '';
+                if(erciclick == ''){
+                	erciclick = '';
+                }else{
+                	erciclick = erciclick;
+                }
+                if(ercival == 'ALL'){
+                	ercival = 'ALL';
+                }else{
+                	ercival = ercival;
+                }
+                database2 = '';
+                menber = '';
+                //$('.tcdPageCode').remove();
+                if(pagebol){
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+                }else{
+                    erciclick = decodeURI(dataurl[1]);//文献id
+                    chen = decodeURI(dataurl[2]);//语种
+                    ercival = decodeURI(dataurl[3]);//二级搜索值
+                    pagenum = decodeURI(dataurl[4]);//当前页码
+                    searchval = decodeURI(dataurl[5]);//搜索内容
+                    database2 = decodeURI(dataurl[6]);//数据库id
+//                    yeares = decodeURI(dataurl[7]);//出版日期
+                    menber = decodeURI(dataurl[8]);//成员馆
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+                }
+                page()
+				var yeares_1 = yeares;
+                $('#sort').on('change',function () {
+                    sorts = $(this).val();
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares_1,menber,sorts);
+                })
+                $('#shownum').on('change',function () {
+                    num = $(this).val();
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares_1,menber,sorts);
+                })
+                yeares = '';
+            }
+
+        });
+        //辅助搜索成员馆点击
+        $(document).on('click','.con-left>div:nth-child(4) li',function(){
+            sorts='';
+            $("#sort").val('');
+            $('#sort').off('change');
+            $('#shownum').off('change');
+        	pagereset();
+            if(seniorbol){
+            	$('input[name=library]').prop("checked",false);
+            	var newmember = '';
+                if ($(this).find('input[name=library]').prop("checked")){
+                    $(this).find('input[name=library]').prop("checked",false);
+                }else {
+                    $(this).find('input[name=library]').prop("checked", true);
+                }
+                for(var i = 0; i < $('.con-left>div:nth-child(4) li').length; i++){
+                    if($('.con-left>div:nth-child(4) li').eq(i).find('input[name=library]').prop("checked")){
+                        newmember += $('.con-left>div:nth-child(4) li').eq(i).find('input[name=library]').val()
+                    }
+                }
+                pagenum = 1;
+                searchnum = 0;
+                totalpage = '';
+                //$('.tcdPageCode').remove();
+                booksearch(user,resourcetype,detail,database,language,newmember,startyear,endyear,num,pagenum,times,sorts);
+                page();
+                $('#sort').on('change',function () {
+                    sorts = $(this).val();
+                    booksearch(user,resourcetype,detail,database,language,newmember,startyear,endyear,num,pagenum,times,sorts);
+                })
+                $('#shownum').on('change',function () {
+                    num = $(this).val();
+                    booksearch(user,resourcetype,detail,database,language,newmember,startyear,endyear,num,pagenum,times,sorts);
+                })
+            }else{
+                menber = '';
+                if ($(this).find('input[name=library]').prop("checked")){
+                    $(this).find('input[name=library]').prop("checked",false);
+                }else {
+                    $(this).find('input[name=library]').prop("checked", true);
+                }
+                for(var i = 0; i < $('.con-left>div:nth-child(4) li').length; i++){
+                    if($('.con-left>div:nth-child(4) li').eq(i).find('input[name=library]').prop("checked")){
+                        menber += $('.con-left>div:nth-child(4) li').eq(i).find('input[name=library]').val() + '、'
+                    }
+                }
+                pagenum = 1;
+                searchnum = 1;
+                totalpage = '';
+                if(erciclick == ''){
+                	erciclick = '';
+                }else{
+                	erciclick = erciclick;
+                }
+                if(ercival == 'ALL'){
+                	ercival = 'ALL';
+                }else{
+                	ercival = ercival;
+                }
+                database2 = '';
+                yeares = '';
+                //$('.tcdPageCode').remove();
+                if(pagebol){
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+                }else{
+                    erciclick = decodeURI(dataurl[1]);//文献id
+                    chen = decodeURI(dataurl[2]);//语种
+                    ercival = decodeURI(dataurl[3]);//二级搜索值
+                    pagenum = decodeURI(dataurl[4]);//当前页码
+                    searchval = decodeURI(dataurl[5]);//搜索内容
+                    database2 = decodeURI(dataurl[6]);//数据库id
+                    yeares = decodeURI(dataurl[7]);//出版日期
+//                    menber = decodeURI(dataurl[8]);//成员馆
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+                }
+                page();
+                var menber_1 = menber;
+                $('#sort').on('change',function () {
+                    sorts = $(this).val();
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber_1,sorts);
+                })
+                $('#shownum').on('change',function () {
+                    num = $(this).val();
+                    simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber_1,sorts);
+                })
+                menber = '';
+            }
+        });
+        //问题反馈点击
+		$(document).on('click','.wenti',function(){
+			$('#wenti').modal('show');
+		})
+		$('#wentibtn').on('click',function(){
+		    var wentiurl = $('#wentiurl').val();
+		    var wentidata = $('#wentitext').val();
+		    $.ajax({
+                url:getURL()+"webservice/service/find/addFeedback",
+                type:"post",
+                async:false,
+                dataType:"json",
+				data:' {"user":"'+user+'","detail":"'+wentidata+'","link":"'+wentiurl+'"}',
+				success:function(data){
+                    $('#wenti').modal('hide');
+                    $('#wentiurl').val('');
+                    $('#wentitext').val('');
+				}
+			})
+
+		})
+        //分页
+        function page() {
+            $(".tcdPageCode").createPage({
+                pageCount: totalpage,
+                current: 1,
+                backFn: function (p) {
+                    //console.log(p);
+                    pagenum = p;
+                    console.log(searchnum)
+//					//$('.tcdPageCode').remove();
+                    switch(searchnum){
+                        case 0:
+                            booksearch(user,resourcetype,detail,database,language,member,startyear,endyear,num,pagenum,times,sorts);
+                            break;
+                        case 1:
+                        	simplesearch(erciclick,chen,ercival,pagenum,num,searchval,database2,yeares,menber,sorts);
+                            break;
+                    }
+
+                }
+            });
+        }
+        //page()函数复位
+        function pagereset(){
+        	$('.tcdPageCode').remove();
+	        $('.con-right').append('<div class="tcdPageCode"></div>');
+        }
+        //图书数据内容
+        function datacontent(datalist,datahidden,jconname){
+            var html = '';
+            if (datalist.type==1){
+                html += '<li>'+
+                    '<div class="book-le">'+
+                    '<img src="'+datalist.qkImg+'">'+
+                    '<div class="dui"></div>'+
+                    '</div>'+
+                    '<div class="book-ri">'+
+                    '<div class="heat">'+
+                    '<p>搜索热度：<span>'+datalist.heat+'</span></p>'+
+                    '</div>'+
+                    '<p class="booktitle">【'+datalist.typeName+'】'+datalist.qkTitle+'<input type="hidden" class="hiddendata" value="'+datahidden+'" /><input type="hidden" class="dataid" value="'+datalist.id+'" /></p>'+
+                    '<div class="bookdetailed">'+
+                    '<p>作者：<span>'+datalist.qkAuthor+'</span></p>'+
+                    '<p>出处：<span>'+datalist.qkInstitutions+'</span></p>'+
+                    '<p>ISBN：<span>'+datalist.qkIssn+'</span></p>'+
+                    '</div>'+
+                    '<ul class="labels">'+
+                    jconname+
+                    '</ul>'+
+                    '<div class="baocun">'+
+                    '保存题目'+
+                    '</div>'+
+                    '</div>'+
+                    '</li>';
+            }else if(datalist.type==4){
+                html += '<li>'+
+                    '<div class="book-le">'+
+                    '<img src="'+datalist.tsImg+'">'+
+                    '<div class="dui"></div>'+
+                    '</div>'+
+                    '<div class="book-ri">'+
+                    '<div class="heat">'+
+                    '<p>搜索热度：<span>'+datalist.heat+'</span></p>'+
+                    '</div>'+
+                    '<p class="booktitle">【'+datalist.typeName+'】'+datalist.tsTitle+'<input type="hidden" class="hiddendata" value="'+datahidden+'" /><input type="hidden" class="dataid" value="'+datalist.id+'" /></p>'+
+                    '<div class="bookdetailed">'+
+                    '<p>作者：<span>'+datalist.tsAuthor+'</span></p>'+
+                    '<p>ISBN：<span>'+datalist.tsIsbn+'</span></p>'+
+                    '<p>出版社：<span>'+datalist.tsPublicationpress+'</span></p>'+
+                    '</div>'+
+                    '<ul class="labels">'+
+                    jconname+
+                    '</ul>'+
+                    '<div class="baocun">'+
+                    '保存题目'+
+                    '</div>'+
+                    '</div>'+
+                    '</li>';
+            }else if(datalist.type==52){
+                html += '<li>'+
+                    '<div class="book-le">'+
+                    '<img src="img/news.png">'+
+                    '<div class="dui"></div>'+
+                    '</div>'+
+                    '<div class="book-ri">'+
+                    '<div class="heat">'+
+                    '<p>搜索热度：<span>'+datalist.heat+'</span></p>'+
+                    '</div>'+
+                    '<p class="booktitle">【'+datalist.typeName+'】'+datalist.bzTitle+'<input type="hidden" class="hiddendata" value="'+datahidden+'" /><input type="hidden" class="dataid" value="'+datalist.id+'" /></p>'+
+                    '<div class="bookdetailed">'+
+                    '<p>作者：<span>'+datalist.bzAuthor+'</span></p>'+
+                    '<p>日期：<span>'+datalist.bzDate+'</span></p>'+
+                    '<p>来源：<span>'+datalist.bzSource+'</span></p>'+
+                    '</div>'+
+                    '<ul class="labels">'+
+                    jconname+
+                    '</ul>'+
+                    '<div class="baocun">'+
+                    '保存题目'+
+                    '</div>'+
+                    '</div>'+
+                    '</li>';
+            }else if(datalist.type==53){
+                html += '<li>'+
+                    '<div class="book-le">'+
+                    '<img src="img/news.png">'+
+                    '<div class="dui"></div>'+
+                    '</div>'+
+                    '<div class="book-ri">'+
+                    '<div class="heat">'+
+                    '<p>搜索热度：<span>'+datalist.heat+'</span></p>'+
+                    '</div>'+
+                    '<p class="booktitle">【'+datalist.typeName+'】'+datalist.xwTitle+'<input type="hidden" class="hiddendata" value="'+datahidden+'" /><input type="hidden" class="dataid" value="'+datalist.id+'" /></p>'+
+                    '<div class="bookdetailed">'+
+                    '<p>作者：<span>'+datalist.xwAuthor+'</span></p>'+
+                    '<p>导师：<span>'+datalist.xwTeacher+'</span></p>'+
+                    '<p>授予单位：<span>'+datalist.xwUnit+'</span></p>'+
+                    '</div>'+
+                    '<ul class="labels">'+
+                    jconname+
+                    '</ul>'+
+                    '<div class="baocun">'+
+                    '保存题目'+
+                    '</div>'+
+                    '</div>'+
+                    '</li>';
+            }else if(datalist.type==54){
+                html += '<li>'+
+                    '<div class="book-le">'+
+                    '<img src="img/news.png">'+
+                    '<div class="dui"></div>'+
+                    '</div>'+
+                    '<div class="book-ri">'+
+                    '<div class="heat">'+
+                    '<p>搜索热度：<span>'+datalist.heat+'</span></p>'+
+                    '</div>'+
+                    '<p class="booktitle">【'+datalist.typeName+'】'+datalist.hyTitle+'<input type="hidden" class="hiddendata" value="'+datahidden+'" /><input type="hidden" class="dataid" value="'+datalist.id+'" /></p>'+
+                    '<div class="bookdetailed">'+
+                    '<p>作者：<span>'+datalist.hyAuthor+'</span></p>'+
+                    '<p>关键词：<span>'+datalist.hyKeyword+'</span></p>'+
+                    '<p>会议名称：<span>'+datalist.hyMeetingname+'</span></p>'+
+                    '</div>'+
+                    '<ul class="labels">'+
+                    jconname+
+                    '</ul>'+
+                    '<div class="baocun">'+
+                    '保存题目'+
+                    '</div>'+
+                    '</div>'+
+                    '</li>';
+            }else if(datalist.type==57){
+                html += '<li>'+
+                    '<div class="book-le">'+
+                    '<img src="img/news.png">'+
+                    '<div class="dui"></div>'+
+                    '</div>'+
+                    '<div class="book-ri">'+
+                    '<div class="heat">'+
+                    '<p>搜索热度：<span>'+datalist.heat+'</span></p>'+
+                    '</div>'+
+                    '<p class="booktitle">【'+datalist.typeName+'】'+datalist.yspTitle+'<input type="hidden" class="hiddendata" value="'+datahidden+'" /><input type="hidden" class="dataid" value="'+datalist.id+'" /></p>'+
+                    '<div class="bookdetailed">'+
+                    '<p>主讲人：<span>'+datalist.yspAuthor+'</span></p>'+
+                    '<p>关键词：<span>'+datalist.yspKeyword+'</span></p>'+
+                    '<p>简介：<span>'+datalist.yspDetail+'</span></p>'+
+                    '</div>'+
+                    '<ul class="labels">'+
+                    jconname+
+                    '</ul>'+
+                    '<div class="baocun">'+
+                    '保存题目'+
+                    '</div>'+
+                    '</div>'+
+                    '</li>';
+            }
+            return html;
+        }
+		//进入详情页所需要缓存的内容
+        function classification(type,datalist){
+            var datahidden = [];
+            datahidden.push("内容简介,"+datalist.detail+"&");
+            datahidden.push("试读信息,"+datalist.tryRead+"&");
+            datahidden.push("作者简介,"+datalist.introduction+"&");
+            if(type==1){
+				if(datalist.qkImg!=''&&datalist.qkImg!=null){
+					datahidden.push("图片,"+datalist.qkImg+"&");
+				}
+				if(datalist.qkTitle!=''&&datalist.qkTitle!=null){
+					datahidden.push("标题,"+datalist.qkTitle);
+				}
+				if (datalist.qkAbstracts!=''&&datalist.qkAbstracts!=null) {
+					datahidden.push("摘要,"+datalist.qkAbstracts+"&");
+				}
+				if(datalist.qkAuthor!=''&&datalist.qkAuthor!=null){
+					datahidden.push("作者,"+datalist.qkAuthor+"&");
+				}
+				if (datalist.qkCn!=''&&datalist.qkCn!=null) {
+					datahidden.push("刊号,"+datalist.qkCn+"&");
+				}
+				if(datalist.qkEditor!=''&&datalist.qkEditor!=null){
+					datahidden.push("主编,"+datalist.qkEditor+"&");
+				}
+				if (datalist.qkField!=''&&datalist.qkField!=null) {
+					datahidden.push("领域,"+datalist.qkField+"&");
+				}
+				if (datalist.qkInstitutions!=''&&datalist.qkInstitutions!=null) {
+					datahidden.push("发文机构,"+datalist.qkInstitutions+"&");
+				}
+				if(datalist.qkIssn!=''&&datalist.qkIssn!=null){
+					datahidden.push("ISSN,"+datalist.qkIssn+"&");
+				}
+				if (datalist.qkKeywords!=''&&datalist.qkKeywords!=null) {
+					datahidden.push("关键词,"+datalist.qkKeywords+"&");
+				}
+				if(datalist.qkOrganizer!=''&&datalist.qkOrganizer!=null){
+					datahidden.push("主办单位,"+datalist.qkOrganizer+"&");
+				}
+				if (datalist.qkPublication!=''&&datalist.qkPublication!=null) {
+					datahidden.push("刊名,"+datalist.qkPublication+"&");
+				}
+				if(datalist.qkPublishtime!=''&&datalist.qkPublishtime!=null){
+					datahidden.push("出版日期,"+datalist.qkPublishtime+"&");
+				}
+				if (datalist.qkSubject!=''&&datalist.qkSubject!=null) {
+					datahidden.push("主题,"+datalist.qkSubject+"&");
+				}
+            }else if(type==4){
+                if (datalist.tsImg!=''&&datalist.tsImg!=null){
+                    datahidden.push("图片,"+datalist.tsImg+"&");
+                }
+                if (datalist.tsTitle!=''&&datalist.tsTitle!=null){
+                    datahidden.push("标题,"+datalist.tsTitle);
+                }
+                if (datalist.tsAbstract!=''&&datalist.tsAbstract!=null) {
+                    datahidden.push("摘要,"+datalist.tsAbstract+"&");
+                }
+                if (datalist.tsAuthor!=''&&datalist.tsAuthor!=null){
+                    datahidden.push("作者,"+datalist.tsAuthor+"&");
+                }
+                if (datalist.tsClassification!=''&&datalist.tsClassification!=null) {
+                    datahidden.push("中图分类,"+datalist.tsClassification+"&");
+                }
+                if (datalist.tsCnmarc!=''&&datalist.tsCnmarc!=null){
+                    datahidden.push("丛书名,"+datalist.tsCnmarc+"&");
+                }
+                if (datalist.tsDetail!=''&&datalist.tsDetail!=null) {
+                    datahidden.push("简介,"+datalist.tsDetail+"&");
+                }
+
+                if (datalist.tsDigital!=''&&datalist.tsDigital!=null) {
+                    datahidden.push("载体形态,"+datalist.tsDigital+"&");
+                }
+                if (datalist.tsDiscuss!=''&&datalist.tsDiscuss!=null){
+                    datahidden.push("目次,"+datalist.tsDiscuss+"&");
+                }
+                if (datalist.tsEdition!=''&&datalist.tsEdition!=null) {
+                    datahidden.push("版次,"+datalist.tsEdition+"&");
+                }
+                if (datalist.tsIsbn!=''&&datalist.tsIsbn!=null){
+                    datahidden.push("ISBN,"+datalist.tsIsbn+"&");
+                }
+                if (datalist.tsPrice!=''&&datalist.tsPrice!=null) {
+                    datahidden.push("价格,"+datalist.tsPrice+"&");
+                }
+                if (datalist.tsPublicationdata!=''&&datalist.tsPublicationdata!=null){
+                    datahidden.push("出版日期,"+datalist.tsPublicationdata+"&");
+                }
+                if (datalist.tsPublicationplace!=''&&datalist.tsPublicationplace!=null) {
+                    datahidden.push("出版地,"+datalist.tsPublicationplace+"&");
+                }
+                if (datalist.tsPublicationpress!=''&&datalist.tsPublicationpress!=null) {
+                    datahidden.push("出版社,"+datalist.tsPublicationpress+"&");
+                }
+                if (datalist.tsQrcode!=''&&datalist.tsQrcode!=null) {
+                    datahidden.push("二维码,"+datalist.tsQrcode+"&");
+                }
+                if (datalist.tsResponsible!=''&&datalist.tsResponsible!=null) {
+                    datahidden.push("题名/责任者,"+datalist.tsResponsible+"&");
+                }
+                if (datalist.tsSubject!=''&&datalist.tsSubject!=null) {
+                    datahidden.push("主题,"+datalist.tsSubject+"&");
+                }
+			}else if(type==52){
+				datahidden.push("图片,img/news.png&");
+                if (datalist.bzTitle!=''&&datalist.bzTitle!=null) {
+                    datahidden.push("标题,"+datalist.bzTitle+"&");
+                }
+                if (datalist.bzAuthor!=''&&datalist.bzAuthor!=null) {
+                    datahidden.push("作者,"+datalist.bzAuthor+"&");
+                }
+                if (datalist.bzDate!=''&&datalist.bzDate!=null) {
+                    datahidden.push("日期,"+datalist.bzDate+"&");
+                }
+                if (datalist.bzEdition!=''&&datalist.bzEdition!=null) {
+                    datahidden.push("版次,"+datalist.bzEdition+"&");
+                }
+                if (datalist.bzSource!=''&&datalist.bzSource!=null) {
+                    datahidden.push("来源,"+datalist.bzSource+"&");
+                }
+			}else if(type==53){
+                datahidden.push("图片,img/news.png&");
+                if (datalist.xwTitle!=''&&datalist.xwTitle!=null) {
+                    datahidden.push("标题,"+datalist.xwTitle+"&");
+                }
+                if (datalist.xwAuthor!=''&&datalist.xwAuthor!=null) {
+                    datahidden.push("作者,"+datalist.xwAuthor+"&");
+                }
+                if (datalist.xwUnit!=''&&datalist.xwUnit!=null) {
+                    datahidden.push("授予单位,"+datalist.xwUnit+"&");
+                }
+                if (datalist.xwKeyword!=''&&datalist.xwKeyword!=null) {
+                    datahidden.push("关键字,"+datalist.xwKeyword+"&");
+                }
+                if (datalist.xwDigest!=''&&datalist.xwDigest!=null) {
+                    datahidden.push("摘要,"+datalist.xwDigest+"&");
+                }
+                if (datalist.xwTeacher!=''&&datalist.xwTeacher!=null) {
+                    datahidden.push("导师,"+datalist.xwTeacher+"&");
+                }
+                if (datalist.xwDate!=''&&datalist.xwDate!=null) {
+                    datahidden.push("学位年度,"+datalist.xwDate+"&");
+                }
+			}else if(type==54){
+                datahidden.push("图片,img/news.png&");
+                if (datalist.hyTitle!=''&&datalist.hyTitle!=null) {
+                    datahidden.push("标题,"+datalist.hyTitle+"&");
+                }
+                if (datalist.hyAuthor!=''&&datalist.hyAuthor!=null) {
+                    datahidden.push("作者,"+datalist.hyAuthor+"&");
+                }
+                if (datalist.hyKeyword!=''&&datalist.hyKeyword!=null) {
+                    datahidden.push("关键词,"+datalist.hyKeyword+"&");
+                }
+                if (datalist.hyMeetingname!=''&&datalist.hyMeetingname!=null) {
+                    datahidden.push("会议名称,"+datalist.hyMeetingname+"&");
+                }
+                if (datalist.hyDigest!=''&&datalist.hyDigest!=null) {
+                    datahidden.push("摘要,"+datalist.hyDigest+"&");
+                }
+                if (datalist.hyUnit!=''&&datalist.hyUnit!=null) {
+                    datahidden.push("作者单位,"+datalist.hyUnit+"&");
+                }
+                if (datalist.hyDate!=''&&datalist.hyDate!=null) {
+                    datahidden.push("日期,"+datalist.hyDate+"&");
+                }
+			}else if(type==57){
+                datahidden.push("图片,img/news.png&");
+                if (datalist.yspTitle!=''&&datalist.yspTitle!=null) {
+                    datahidden.push("标题,"+datalist.yspTitle+"&");
+                }
+                if (datalist.yspAuthor!=''&&datalist.yspAuthor!=null) {
+                    datahidden.push("主讲人,"+datalist.yspAuthor+"&");
+                }
+                if (datalist.yspUrl!=''&&datalist.yspUrl!=null) {
+                    datahidden.push("播放地址,"+datalist.yspUrl+"&");
+                }
+                if (datalist.yspKeyword!=''&&datalist.yspKeyword!=null) {
+                    datahidden.push("关键词,"+datalist.yspKeyword+"&");
+                }
+                if (datalist.yspDetail!=''&&datalist.yspDetail!=null) {
+                    datahidden.push("简介,"+datalist.yspDetail+"&");
+                }
+                if (datalist.yspInstitution!=''&&datalist.yspInstitution!=null) {
+                    datahidden.push("主讲人机构,"+datalist.yspInstitution+"&");
+                }
+			}
+			return datahidden;
+		}
+	</script>
+</html>

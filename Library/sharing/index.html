@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit"/>
+		<title>佛山市联合图书馆数字资源共建共享平台</title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<style>
+			.c-left>div>p {
+				cursor: pointer;
+			}
+			.c-left>div>p .caret {
+				margin-top: 17px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="title">
+				<div class="logo">
+					<img src="img/logo.png"/>
+					<p>佛山市图书馆</p>
+					<p>FOSHAN MUNICIPAL LIBRARY</p>
+				</div>
+				<ul class="t-text">
+					<li class="t-textb">资源导航</li>
+					<li>资讯</li>
+					<li>课件培训</li>
+				</ul>
+				<div class="searchtxt">
+					<input type="text" name="" id="txt" value="" />
+					<input type="button" name="btn" id="btn" value="搜索" />
+				</div>
+			</div>
+			<div class="content">
+				<div class="c">
+					<p class="c-title">数字资源导航 <span class="seeall">查看全部数据库</span></p>
+					<div class="c-left">
+						<!--<div class="gsd ddd">馆属地</div>-->
+						<!--<ul class="library">-->
+							<!--<li>佛山市图书馆</li>-->
+							<!--<li>禅城区图书馆</li>-->
+							<!--<li>三水区图书馆</li>-->
+							<!--<li>南海区图书馆</li>-->
+							<!--<li>高明区图书馆</li>-->
+						<!--</ul>-->
+						<!--<div class="gsd ddd">语种</div>-->
+						<!--<ul class="language">-->
+							<!--&lt;!&ndash;<li>中文简体</li>-->
+							<!--<li>中文繁体</li>&ndash;&gt;-->
+						<!--</ul>-->
+					</div>
+					<div class="c-right">
+						<ul class="c-right-title">
+							<!--<li class="ccc">中文数据库</li>
+							<li>台湾数据库</li>
+							<li>外文数据库</li>
+							<li>自建数据库</li>
+							<li>试用数据库</li>-->
+						</ul>
+						<ul class="c-right-con">
+							<!--<li>万方数据</li>
+							<li>eps数据库</li>
+							<li>知识世界</li>
+							<li>书香中国</li>
+							<li>书生电子书</li>
+							<li>万方数据</li>
+							<li>eps数据库</li>
+							<li>知识世界</li>
+							<li>书香中国</li>
+							<li>书生电子书</li>
+							<li>万方数据</li>
+							<li>eps数据库</li>
+							<li>知识世界</li>
+							<li>书香中国</li>
+							<li>书生电子书</li>
+							<li>万方数据</li>
+							<li>eps数据库</li>
+							<li>知识世界</li>
+							<li>书香中国</li>
+							<li>书生电子书</li>-->
+						</ul>
+						<p class="more">点击查看更多</p>
+					</div>
+					
+				</div>
+				<div class="c-foot">
+					<div><img src="img/a1.png"/></div>
+					<div><img src="img/a2.png"/></div>
+					<div><img src="img/a3.png"/></div>
+					<div><img src="img/a4.png"/></div>
+					<div><img src="img/a5.png"/></div>
+				</div>
+				
+				<!--登录框-->
+				<div class="loginbox">
+					<p class="log-title">统一认证平台 <img class="X" src="img/X.png"/></p>
+					<div class="log-con">
+						<p class="zh">证号：<input type="text" name="" id="loginbox1" value="" placeholder="请输入身份证号/图书证号" /></p>
+						<p class="mm">密码：<input type="password" name="" id="loginbox2" value="" placeholder="请输入密码" /></p>
+						<p class="wjmm"><a href="###">忘记密码</a></p>
+						<div class="cancel">取消</div>
+						<div class="login">登录</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+			<div class="foot">
+				<p>地址：佛山市佛山新城华康道11号(新馆) 邮编：528000 总机：0757-28360000 粤ICP备05083431号-5 粤公网安备44060402000039号</p>
+			</div>
+		</div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/addURL.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicSearch.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			//请求参数
+			var dataname=english=userid=yiji=erji=sanji='';
+			var start = 1;
+			var end = 48;
+			//查看全部数据库
+			$('.seeall').on('click',function(){
+	//			window.location.href = 'navigation.html'
+				window.location.href = 'search.html?con='
+			})
+			/*首页数字资源展示 三级分类*/
+			$.ajax({
+				type:'get',
+				url:getURL()+"webservice/service/shared/column",
+				async:true,
+				dataType:"json",
+				success:function(data){
+				    console.log(data)
+					var html1 = '<li class="ccc">全部数据库<input type="hidden" value="no" /></li>';
+					var html3 = '';
+					var content = ''
+					for(var i = 0; i < data.data.yiji.length; i++){
+						html1 += '<li>'+data.data.yiji[i].NAME+'<input type="hidden" value="'+data.data.yiji[i].ID+'" /></li>'
+					}
+					$('.c-right-title').html(html1);
+                    for(var i = 0; i<Object.keys(data.data.sanji).length; i++){
+                        if(data.data.sanji[i].pop().location.indexOf("1")!='-1'){
+                            for(var j = 0; j < data.data.sanji[i].length; j++){
+                                html3 += '<li>'+data.data.sanji[i][j].NAME+'<input type="hidden" value="'+data.data.sanji[i][j].ID+'"></li>'
+                            }
+                            content += '<div>'+
+                                '<p data-toggle="collapse" class="gsd ddd" data-parent="#accordion"href="#collapseOne'+i+'">'+data.data.sanji[i][1].DICTNAME +'<b class="caret"></b></p>'+
+                                '<ul id="collapseOne'+i+'" class="language collapse in">'+
+                                html3+
+                                '</ul>'+
+                                '</div>'
+                            html3 = ''
+                        }
+                    }
+                    $('.c-left').html(content);
+//					for(var i = 0; i<data.data.sanji.length; i++){
+//						html3 += '<li>'+data.data.sanji[i].NAME+'<input type="hidden" value="'+data.data.sanji[i].ID+'"></li>'
+//					}
+//					$('.language').html(html3);
+				}
+			})
+			//判断用户是否登录
+			function user(){
+				if(localStorage.userid!=undefined){
+					userid = localStorage.userid;
+				}else if(sessionStorage.userid!=undefined){
+					userid = sessionStorage.userid;
+				}else{
+					userid = 1;
+				}
+			}
+			//一级列表点击
+			$(document).on('click',".c-right-title>li", function() {
+				$(".c-right-title>li").removeAttr('class');
+				$(this).attr('class', 'ccc');
+				yiji = $(this).find('input').val();
+				user();
+				if(yiji=='no'){
+					dataname=english=yiji=erji=sanji=''
+					resource(dataname,english,userid,yiji,erji,sanji,start,end);
+					$(".library>li").removeClass('m22');
+					$(".language>li").removeClass('m22');
+				}else{
+					resource(dataname,english,userid,yiji,erji,sanji,start,end);
+				}
+			})
+			//二级列表点击
+			$(document).on('click',".library>li", function() {
+				$(".library>li").removeClass('m22');
+				$(this).addClass('m22');
+				erji = $(this).find('input').val();
+				user();
+				resource(dataname,english,userid,yiji,erji,sanji,start,end);
+			})
+			//三级列表点击
+			$(document).on('click',".language>li", function() {
+				$(".language>li").removeClass('m22');
+				$(this).addClass('m22');
+				sanji = $(this).find('input').val();
+				user();
+				resource(dataname,english,userid,yiji,erji,sanji,start,end);
+			})
+			
+			resource(dataname,english,userid,yiji,erji,sanji,start,end);
+			/*首页数字资源展示 三级分类结束*/
+			
+			//搜索
+			$('#btn').on('click',function(){
+				window.location.href = 'search.html?con='+$('#txt').val();
+			})
+			
+			//顶部导航
+			$('.t-text>li').on('click',function(){
+				$('.t-text>li').removeClass('t-textb');
+				$(this).addClass('t-textb');
+				if($(this).index()==0){
+					window.location.href = ''
+				}else if($(this).index()==1){
+					window.location.href = 'consultation.html?data=0';
+				}else if($(this).index()==2){
+					window.location.href = 'courseware.html';
+				}
+			})
+			
+			//底部动画部分
+			$('.c-foot>div').addClass('animated rubberBand');
+			setTimeout(function(){
+				$('.c-foot>div').removeClass('animated rubberBand')
+			},1000)
+			$('.c-foot>div').on('mouseenter',function(){
+				$(this).find('img').addClass('animated flip');
+			})
+			$('.c-foot>div').on('mouseleave',function(){
+				$(this).find('img').removeClass('animated flip');
+			})
+			
+			//统一认证登录框
+			$('.X, .cancel').on('click',function(){
+				$('.loginbox').addClass('animated flipOutX');
+				setTimeout(function(){
+					$('.loginbox').removeClass('animated flipOutX');
+					$('.c, .c-foot').css('display','block');
+					$('.loginbox').css('display','none');
+					$('.content').css({
+						"background":"url(img/bg.png) no-repeat",
+						"background-size": "100% 100%",
+						"position": "relative"
+					})
+				},800)
+				
+			})
+			//底部点击事件
+			$('.c-foot>div:nth-child(1)').on('click',function(){
+				$('.c, .c-foot').css('display','none');
+				$('.loginbox').css('display','block');
+				$('.loginbox').addClass('animated flipInX');
+				setTimeout(function(){
+					$('.loginbox').removeClass('animated flipInX');
+				},1000)
+				$('.content').css({
+					"background":"url(img/bg2.png) no-repeat",
+					"background-size": "100% 100%",
+					"position": "relative"
+				})
+			})
+			$('.c-foot>div:nth-child(2)').on('click',function(){
+				window.location.href = 'navigation.html';
+			})
+			$('.c-foot>div:nth-child(3)').on('click',function(){
+				user();
+				if(userid==1){
+					alert("您还未登录,无法查看您的收藏夹")
+					return false;
+				}else{
+					window.location.href = 'favorite.html';
+				}
+			})
+			$('.c-foot>div:nth-child(4)').on('click',function(){
+				window.location.href = 'reference.html'
+			})
+			$('.c-foot>div:nth-child(5)').on('click',function(){
+				window.location.href = 'toold.html'
+			})
+		})
+	</script>
+</html>

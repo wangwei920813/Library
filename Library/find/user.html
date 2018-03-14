@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/headerfoot.css"/>
+		<link rel="stylesheet" type="text/css" href="css/user.css"/>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="title">
+				<img class="logo" src="img/logo.png"/>
+				<p class="title-p">佛山图书馆资源发现系统</p>
+				<div class="logoin">
+					<p class="user"><img src="img/1509005188(1).jpg"/>阿波罗</p>
+					<!--<p class="tilu">题录</p>-->
+					<p class="tc">退出</p>
+				</div>
+			</div>
+			<div class="image">
+				<img src="img/(1).jpg"/>
+				<p></p>
+			</div>
+			<p class="ueer">用户中心<span class="usersp"> > </span><span class="usersp" style="color: #07B5E6;">我的收藏</span></p>
+			<div class="content">
+				<div class="left">
+					<p>我的收藏</p>
+					<div>
+						<img src="img/18_18 (2).png"/>
+						<h3>我的收藏</h3>
+					</div>
+					<div>
+						<img src="img/18_18 (3).png"/>
+						<h3>检索历史</h3>
+					</div>
+					<div>
+						<img src="img/18_18 (5).png"/>
+						<h3>个性化检索配置</h3>
+					</div>
+					<div>
+						<img src="img/18_18 (6).png"/>
+						<h3>定题服务</h3>
+					</div>
+					<div>
+						<img src="img/18_18 (6).png"/>
+						<h3>预借清单</h3>
+					</div>
+					<div>
+						<img src="img/18_18 (1).png"/>
+						<h3>我的分享</h3>
+					</div>
+					<div style="display: none;">
+						<img src="img/18_18 (4).png"/>
+						<h3>检索策略</h3>
+					</div>
+				</div>
+				<div class="right">
+					<!--我的收藏-->
+					<div class="collection me">
+						<ul>
+
+						</ul>
+						<!--分页器-->
+						<div class="tcdPageCode"></div>
+					</div>
+					<!--检索历史-->
+					<div style="display: none;" class="history me">
+						<p class="empty">清空条件：<select name="time" id="time">
+							<option value="no">请选择</option>
+							<option value="0">一个月</option>
+							<option value="1">三个月</option>
+							<option value="2">半年</option>
+							<option value="3">一年</option>
+							<option value="4">三年</option>
+						</select></p>
+						<p class="history-tit"><span class="no_1"></span><span class="no_3">时间</span><span class="no_4" style="width: 518px;">检索条件</span><span class="no_5">操作</span></p>
+						<ul class="history-con">
+
+						</ul>
+						<p style="margin: 20px 0;"><label class="alldel" style="display: inline-block;"><span class="alldel2"><input type="checkbox" id="all" onclick="choice()">全选</span></label><span class="dels1">删除</span></p>
+						<!--分页器-->
+						<div class="tcdPageCode2"></div>
+					</div>
+					<!--检索配置-->
+					<div style="display: none;" class="new me">
+						<p class="newj">新建个性化检索</p>
+						<p class="new-tit"><span class="no_1"></span><span class="no_2">配置名称</span><span class="no_3">时间</span><span class="no_4">检索条件</span><span class="no_5">操作</span></p>
+						<ul class="new-con">
+
+						</ul>
+						<p style="margin: 20px 0;"><label class="alldel" style="display: inline-block;"><span class=""><input type="checkbox" name="chec" id="chec" onclick="choice3()">全选</span></label><span class="dels2">删除</span></p>
+						<!--分页器-->
+						<div class="tcdPageCode3"></div>
+					</div>
+					<!--预借清单-->
+					<div style="display: none;" class="borrow me">
+						<ul>
+							<li>
+								<div class="bor-left">
+									<img src="img/1510045984(1).jpg" alt="">
+								</div>
+								<div class="bor-right">
+									<h3>【图书】希腊</h3>
+									<div class="bor-div">
+										<p>作者：<span>六道</span></p>
+										<p>出处：<span>北京啦啦啦啦</span></p>
+										<p>出版日期：<span>2017/06/05</span></p>
+										<p>文献类型：<span>图书</span></p>
+										<p>索书号：<span>尼日利亚</span></p>
+										<p>馆藏地：<span>澳大利亚</span></p>
+										<p>所在楼层：<span>1.5486e+2.1603层</span></p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="bor-left">
+									<img src="img/1510045984(1).jpg" alt="">
+								</div>
+								<div class="bor-right">
+									<h3>【图书】希腊</h3>
+									<div class="bor-div">
+										<p>作者：<span>六道</span></p>
+										<p>出处：<span>北京啦啦啦啦</span></p>
+										<p>出版日期：<span>2017/06/05</span></p>
+										<p>文献类型：<span>图书</span></p>
+										<p>索书号：<span>尼日利亚</span></p>
+										<p>馆藏地：<span>澳大利亚</span></p>
+										<p>所在楼层：<span>1.5486e+2.1603层</span></p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="bor-left">
+									<img src="img/1510045984(1).jpg" alt="">
+								</div>
+								<div class="bor-right">
+									<h3>【图书】希腊</h3>
+									<div class="bor-div">
+										<p>作者：<span>六道</span></p>
+										<p>出处：<span>北京啦啦啦啦</span></p>
+										<p>出版日期：<span>2017/06/05</span></p>
+										<p>文献类型：<span>图书</span></p>
+										<p>索书号：<span>尼日利亚</span></p>
+										<p>馆藏地：<span>澳大利亚</span></p>
+										<p>所在楼层：<span>1.5486e+2.1603层</span></p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<!--分页器-->
+						<div class="tcdPageCode4"></div>
+					</div>
+					<!--我的分享-->
+					<div style="display: none;" class="share me">
+						<ul>
+							<li>
+								<div class="bookimg">
+									<img src="img/1510045984(1).jpg"/>
+								</div>
+								<div class="bookint">
+									<h3>【图书】 醉梦红尘</h3>
+									<p>作者：<span>噜噜噜</span></p>
+									<p>出处：<span>北京人民出版社</span></p>
+									<p>ISBN：<span>987-789-65-456-1</span></p>
+								</div>
+								<p class="del">删除</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="foot">
+				<p>地址：佛山市佛山新城华康道（新馆） 邮编：528000 总机：0757-28360000</p>
+				<p>粤ICP备05083431号-5粤公安网安备44060402000039号</p>
+			</div>
+		</div>
+		<!--个性化检索-->
+		<div style="display: none;" class="modal fade modal1" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header modal1-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/x-1000_03.png"/></button>
+						<h4 class="modal-title" style="line-height: 40px;">个性化检索</h4>
+					</div>
+					<div class="modal-body modal1-body">
+						<div class="name">
+							检索名称：<input type="text" id="name" /> <span id="fanhui">返回简单检索</span>
+						</div>
+						<div class="literature">
+							<div class="top">
+								<div class="top-le">
+									文献类型选择：
+								</div>
+								<div class="top-ri">
+
+								</div>
+							</div>
+							<div class="bottom">
+								<ul class="botul">
+									<span>+</span>
+									<span>-</span>
+									<li>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+									<li>
+										<select name="" class="sel1">
+											<option value="and">与</option>
+											<option value="or">或</option>
+										</select>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+									<li>
+										<select name="" class="sel1">
+											<option value="and">与</option>
+											<option value="or">或</option>
+										</select>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+								</ul>
+								<p style="margin-top: 10px;font-size: 14px;">说明：高级检索多个条件检索是按照顺序运算的：如A或B与C 即：(A或B)与C</p>
+							</div>
+							<p class="datap">数据库选择：</p><div class="data">
+						</div>
+							<p class="language">语种：
+								<select name="" id="language">
+									<option value="">请选择</option>
+								</select>
+								<span style="margin-left: 65px;">成员馆：</span>
+								<select name="" id="member">
+									<option value="">请选择</option>
+								</select>
+							</p>
+							<p class="yesear">年份：
+								<select name="" id="startmember">
+									<option value="">开始的年份</option>
+								</select>
+								至
+								<select name="" id="endmember">
+									<option value="">结束的年份</option>
+								</select>
+							</p>
+							<p class="datanumber">每页显示条数：
+								<label><input class="tiaoshu" name="datanumber" type="radio" value="15" checked="checked" />15</label>
+								<label><input class="tiaoshu" name="datanumber" type="radio" value="20" />20</label>
+							</p>
+							<!--<p class="display">只显示：-->
+								<!--<label><input class="xianshi" name="display" type="radio" value="0" checked="checked" />馆藏书目</label>-->
+								<!--<label><input class="xianshi" name="display" type="radio" value="1" />电子书目</label>-->
+							<!--</p>-->
+							<div class="btns">
+								<div id="returnbtn">保存检索条件</div>
+								<div id="searchbtn">检索</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery2.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/addURL.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicCondition.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/user.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/SearchHistory.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/SeniorSearch.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        //预借清单分页
+        var pagenum4 = 100;
+        var totalpage4 = 10;
+        page4();
+
+        function page4() {
+            $(".tcdPageCode4").createPage({
+                pageCount: totalpage4,
+                current: 1,
+                backFn: function(p) {
+                    //console.log(p);
+                    pagenum4 = p;
+                    console.log(pagenum4)
+                }
+            });
+        }
+
+        /*个性化检索全选删除*/
+        //是否全选判断变量
+        var allimg2 = false;
+        function choice3() {
+            if(allimg2) {
+                $('input[name=che]').each(function() {
+                    this.checked = false;
+                });
+                allimg2 = false;
+            } else {
+                $('input[name=che]').each(function() {
+                    this.checked = true;
+                });
+                allimg2 = true;
+            }
+
+        }
+        //当全部选择或有一个取消时全选按钮取消
+        function choice4() {
+            var one = document.getElementsByClassName("che");
+            var all = document.getElementById("chec");
+            var selCount = 0;
+            var unSelCount = 0;
+            for(var i = 0; i < one.length; i++) {
+                if(one[i].checked == true) {
+                    selCount++;
+                }
+                if(one[i].checked == false) {
+                    unSelCount++;
+                }
+                if(selCount == one.length) {
+                    all.checked = true;
+                }
+                if(unSelCount > 0) {
+                    all.checked = false;
+                }
+            }
+        }
+        /*个性化检索全选删除功能结束*/
+    </script>
+</html>

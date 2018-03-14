@@ -1,0 +1,69 @@
+.wrap{
+				width: 100%;
+				min-width: 1400px;
+			}
+			.title{
+				width: 100%;
+				height: 60px;
+				box-shadow: 0 5px 10px #E1E1E8;
+			}
+			.logo{
+				margin: 10px 0 0 100px;
+			}
+			.title-p{
+				display: inline-block;
+				line-height: 60px;
+				vertical-align: top;
+			}
+			.logoin{
+				float: right;
+				margin-right: 100px;
+				margin-top: 15px;
+			}
+			.logoin>p{
+				display: inline-block;
+				margin-left: 10px;
+				font-size: 14px;
+			}
+			.user>img{
+				width: 32px;
+				height: 32px;
+				margin-right: 5px;
+			}
+			.tilu, .tc{
+				width: 58px;
+				height: 28px;
+				border: 1px solid #CCCCCC;
+				text-align: center;
+				line-height: 28px;
+				-moz-border-radius: 4px;
+				-webkit-border-radius: 4px;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+			.image{
+				height: 225px;
+				position: relative;
+			}
+			.image img{
+				width: 100%;
+				height: 100%;
+			}
+			.image>p{
+				width: 100%;
+				height: 32px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				background: rgba(0,0,0,0.5);
+			}
+			.foot{
+				width: 100%;
+				height: 95px;
+				background: #EEEEEE;
+				padding-top: 45px;
+			}
+			.foot>p{
+				line-height: 28px;
+				text-align: center;
+			}

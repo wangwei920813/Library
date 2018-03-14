@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit" />
+		<title>佛山市联合图书馆数字资源共建共享平台</title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/navigation.css" />
+		<link rel="stylesheet" type="text/css" href="css/navigation1.css" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/addURL.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*意见反馈字数统计----开始*/
+			function font() {
+				var maxlength = 200;
+				var length = $("#font").val().length;
+				var count = maxlength - length;
+				$("#sp").html(count);
+				if(count <= 25) {
+					$("#sp").css('color', 'red')
+					if(count <= 0) {
+						$("#sp").html(0);
+						var html = $('#font').val();
+						html = $('#font').val().substr(0, 200);
+						$('#font').val(html)
+						//                  		html = html.split(0,200);
+						//                  		$('#font').val($('#font').val().slice(0,200));
+					}
+				} else {
+					$("#sp").css('color', 'black');
+				}
+			}
+			/*意见反馈字数统计----结束*/
+		</script>
+	</head>
+
+	<body>
+		<img class="zixun" src="img/right_03.png" />
+		<div id="fixed">
+			<img src="img/right_07.png" />
+			<img src="img/right_09.png" />
+			<img src="img/right_11.png" />
+			<img src="img/right_13.png" />
+			<img src="img/right_15.png" />
+			<img src="img/right_17.png" />
+			<img src="img/right_20.png" />
+		</div>
+		<div class="wrap">
+			<iframe src="top.html" width="100%" height="40px" style="border: none;"></iframe>
+			<div class="title">
+				<ul class="slider">
+					<li class="homepage">首页</li>
+					<li class="sliders navigation">资源导航</li>
+					<li class="consultation">资讯</li>
+					<li class="courseware">培训课件</li>
+					<li class="favorite">我的收藏夹</li>
+					<li class="reference">参考咨询</li>
+					<li class="toold">工具下载</li>
+					<div id="sousuo">
+						<input type="text" name="" id="dataname" value="" placeholder="输入数据库名称" />
+						<input type="button" name="" id="datasousuo" value="搜索" />
+					</div>
+				</ul>
+			</div>
+			<div class="content">
+
+				<!--<div class="search">
+					<select class="searchtxt">
+						<option value="">数字资源 <input type="hidden" value="" /></option>
+					</select>
+					<input type="text" name="" id="text" value="" placeholder="请输入搜索内容" />
+					<input type="button" name="" id="btn" value="搜索" />
+				</div>-->
+				<div class="erci" style="margin-bottom: 10px;">
+					<ul class="list">
+						<li class="ercic">全部</li>
+						<li>图书</li>
+						<li>期刊</li>
+						<li>报纸</li>
+						<li>学位论文</li>
+						<li>会议论文</li>
+						<li>专利</li>
+						<li>标准</li>
+						<li>知识库</li>
+					</ul>
+					<div class="ercitxt">
+						<input id="ipt1" name="tn" type="hidden" value="baidu" >
+						<input type="text" id="ercitxt" value="" name="word" maxlength="8048" value="" placeholder="" baiduSug=1 onmouseover="focus()" />
+						<input type="button" name="" id="ch" value="中文检索" />
+						<input type="button" name="" id="en" value="外文检索" />
+						<div class="bbb">
+							<input type="button" name="" id="senior" value="高级检索" />
+							<input type="button" name="" id="major" value="专业检索" />
+						</div>
+					</div>
+					<ul class="option">
+						<!--<li><img src="img/dian_06.png"/> 二次搜索</li>-->
+					</ul>
+				</div>
+
+				<p>我的位置：<span id="address1">资源导航</span> > <span id="address2">数字资源</span></p>
+				<hr style="margin: 10px 0; background: #CCCCCC;" />
+				<!--资源导航-->
+				<div class="content-c">
+
+					<div class="albo" style="height: 35px;">
+						<p style="font-size: 20px;float: left; line-height: 35px;">数字资源</p>
+						<p style="font-size: 16px;float: left; line-height: 35px;color: #2CC6F5;cursor: pointer;margin-left: 645px;">查看全部资源>></p>
+					</div>
+					<div class="c-left">
+						<ul class="c-top">
+							<!--<li id="c-topcolor">中文数据库</li>
+							<li>台湾数据库</li>
+							<li>外文数据库</li>
+							<li>自建数据库</li>
+							<li>试用数据库</li>
+							<li>开放资源</li>-->
+						</ul>
+						<div class="c-left-left">
+							<!--<div>-->
+							<!--<p data-toggle="collapse" data-parent="#accordion"-->
+							<!--href="#collapseOne">语种 <b class="caret"></b></p>-->
+							<!--<ul id="collapseOne" class="yesears collapse in">-->
+							<!--&lt;!&ndash;<li>2017</li>-->
+							<!--<li>2016</li>-->
+							<!--<li>2015</li>-->
+							<!--<li>2014</li>&ndash;&gt;-->
+							<!--</ul>-->
+							<!--</div>-->
+						</div>
+						<div class="c-right-right">
+							<ul class="mmp">
+								<!--<li>佛山市图书馆</li>
+								<li>哥伦比亚图书馆</li>
+								<li>伦敦市图书馆</li>
+								<li>旧金山市图书馆</li>-->
+							</ul>
+							<p style="color: #C0C0C0;padding: 15px;text-indent: 5px;background: #fbfcfd;">共<span style="color: orangered;">89</span>个资源</p>
+							<ul class="c-content">
+								<!--<li>博看盲人期刊平台</li>
+								<li>博看盲人期刊平台</li>
+								<li>博看盲人期刊平台</li>
+								<li>博看盲人期刊平台</li>
+								<li>博看盲人期刊平台</li>
+								<li>博看盲人期刊平台</li>
+								<li>博看盲人期刊平台</li>-->
+							</ul>
+							<div id="introduce">
+								<img src="img/sanjiao.png" />
+								<h3>资源介绍</h3>
+								<p id="inp">这是一个很有内涵的故事</p>
+								<h3>资源链接 <p id="lianjie"></p></h3>
+								<h3>资源说明<p id="explain"></p></h3>
+							</div>
+						</div>
+					</div>
+					<div class="c-right">
+						<div class="one">
+							<h3>使用指南</h3>
+							<p>到馆使用：凭本人读者证到四楼服务台申请机位后使用。</p>
+							<p>馆外访问：进入数字资源页面，点击数据库后方"馆外访问"按钮，输入读者证证号和密码登录即可。</p>
+							<img src="img/wenti.png" />
+						</div>
+						<div class="two">
+							<h3>最新资讯 <span>>>更多</span></h3>
+							<ul>
+								<li><span></span>2017数字图画书馆资源实操技能培训第三期</li>
+								<li><span></span>2017数字图画书馆资源实操技能培训第三期</li>
+								<li><span></span>2017数字图画书馆资源实操技能培训第三期</li>
+								<li><span></span>2017数字图画书馆资源实操技能培训第三期</li>
+								<li><span></span>2017数字图画书馆资源实操技能培训第三期</li>
+								<li><span></span>2017数字图画书馆资源实操技能培训第三期</li>
+							</ul>
+						</div>
+						<div class="three">
+							<h3>数字资源荐购</h3>
+						</div>
+						<div class="four">
+							<h3>数字资源意见反馈</h3>
+						</div>
+					</div>
+
+				</div>
+
+				<!--意见反馈-->
+				<div class="feedback" style="display: none;">
+					<p style="font-size: 20px; line-height: 35px;">意见反馈</p>
+					<div class="fee-left">
+						<p class="fee-p">您对佛山图书馆数字资源及服务的开展有何建议?</p>
+						<textarea id="font" name="font" rows="28" cols="5" placeholder="请输入内容，不超过200字" style="resize: none;" onkeydown="font()" ; onkeyup="font()" ;></textarea>
+						<div class="font-number">还可以输入<span id="sp">200</span>字</div>
+						<span class="fee-btn">提交</span>
+					</div>
+					<ul class="fee-right">
+						<li><img src="img/hz_03.png" /></li>
+						<li><img src="img/hz_06.png" /></li>
+						<li><img src="img/hz_08.png" /></li>
+						<li><img src="img/hz_10.png" /></li>
+						<li><img src="img/hz_13.png" /></li>
+						<li><img src="img/hz_16.png" /></li>
+						<li><img src="img/hz_18.png" /></li>
+					</ul>
+
+					<!--意见反馈提交模态框-->
+					<div class="modal fade" id="submission" tabindex="-1" role="dialog" aria-labelledby="mysubmission" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header sub-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/X.png"/></button>
+									<h4 class="modal-title" id="mysubmission">温馨提示</h4>
+								</div>
+								<div class="modal-body sub-body">
+									<p class="sub-p">您的意见已提交，感谢您的支持！</p>
+									<p class="sub-btn">关闭</p>
+								</div>
+								<!--<div class="modal-footer">
+					                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					                <button type="button" class="btn btn-primary">提交更改</button>
+					            </div>-->
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<iframe src="bottom.html" width="100%" height="80px" style="border: none;"></iframe>
+		</div>
+		<!--高级检索-->
+		<div style="display: none;" class="modal fade modal1" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header modal1-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/x-1000_03.png"/></button>
+						<h4 class="modal-title" style="line-height: 40px;">个性化检索</h4>
+					</div>
+					<div class="modal-body modal1-body">
+						<div class="name" style="opacity: 0">
+							检索名称：<input type="text" id="name" /> <span id="fanhui">返回简单检索</span>
+						</div>
+						<div class="literature">
+							<div class="top">
+								<div class="top-le">
+									文献类型选择：
+								</div>
+								<div class="top-ri">
+
+								</div>
+							</div>
+							<div class="bottom">
+								<ul class="botul">
+									<span>+</span>
+									<span>-</span>
+									<li>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+									<li>
+										<select name="" class="sel1">
+											<option value="and">与</option>
+											<option value="or">或</option>
+										</select>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+									<li>
+										<select name="" class="sel1">
+											<option value="and">与</option>
+											<option value="or">或</option>
+										</select>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+								</ul>
+								<p style="margin-top: 10px;font-size: 14px;">说明：高级检索多个条件检索是按照顺序运算的：如A或B与C 即：(A或B)与C</p>
+							</div>
+							<p class="datap">数据库选择：</p>
+							<div class="data">
+							</div>
+							<p class="language">语种：
+								<select name="" id="language">
+									<option value="">请选择</option>
+								</select>
+								<span style="margin-left: 65px;">成员馆：</span>
+								<select name="" id="member">
+									<option value="">请选择</option>
+								</select>
+							</p>
+							<p class="yesear">年份：
+								<select name="" id="startmember">
+									<option value="">开始的年份</option>
+								</select>
+								至
+								<select name="" id="endmember">
+									<option value="">结束的年份</option>
+								</select>
+							</p>
+							<p class="datanumber">每页显示条数：
+								<label><input class="tiaoshu" name="datanumber" type="radio" value="15" checked="checked" />15</label>
+								<label><input class="tiaoshu" name="datanumber" type="radio" value="20" />20</label>
+							</p>
+							<!--<p class="display">只显示：-->
+							<!--<label><input class="xianshi" name="display" type="radio" value="0" checked="checked" />馆藏书目</label>-->
+							<!--<label><input class="xianshi" name="display" type="radio" value="1" />电子书目</label>-->
+							<!--</p>-->
+							<div class="btns">
+								<div id="searchbtn">检索</div>
+								<div id="returnbtn">返回简单检索</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
+	<script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicSearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/navigation.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicMethod.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicCondition.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/SeniorSearch.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+        document.getElementById("ercitxt").focus();
+        var txtObj = document.getElementById("alertSpan");
+        //回调函数，用于获取用户当前选择的文字
+        function show(str){
+            txtObj.innerHTML = str;
+        }
+        var params = {
+            "XOffset": 0,   //提示框位置横向偏移量,单位px
+            "YOffset": 0,   //提示框位置纵向偏移量,单位px
+            "width": 204,   //提示框宽度，单位px
+            "fontColor": "#666",  //提示框文字颜色
+            "fontColorHI": "#222",  //提示框高亮选择时文字颜色
+            "fontSize": "16px",  //文字大小
+            "fontFamily": "微软雅黑", //文字字体
+            "borderColor": "#d8d8d8", //提示框的边框颜色
+            "bgcolorHI": "#e8e8e8",  //提示框高亮选择的颜色
+            "sugSubmit": true,  //在选择提示词条是是否提交表单
+        };
+        BaiduSuggestion.bind("ipt1",params,show);
+		//阻止默认事件
+		//  	$(document).bind("selectstart",function(event){ 
+		//			if (event.preventDefault) {
+		//			    event.preventDefault(); //支持DOM标准的浏览器
+		//			} else {
+		//			    event.returnValue = false; //IE
+		//			}
+		//  	});
+		//		$(document).on('dblclick',function(event){
+
+		//		})
+		/*高级检索*/
+		//弹框触发
+		$('#senior').on('click', function() {
+			$('#myModal').modal('show');
+		})
+		//信息+
+		var optionnum = 3;
+		$('.botul>span:nth-child(1)').on('click', function() {
+			// console.log(optionnum)
+			if(optionnum > 4) {
+				alert("最多支持五条");
+				return
+			}
+			var html = '<li>' +
+				'<select name="" class="sel1">' +
+				'<option value="and">与</option>' +
+				'<option value="or">或</option>' +
+				'</select> ' +
+				'<select name="" class="sel2">' +
+				erjicon +
+				'</select> ' +
+				'<input type="text" name="" value="" class="txt" /> ' +
+				'<select name="" class="sel3">' +
+				'<option value="0">全部</option>' +
+				'<option value="1">精确</option>' +
+				'</select>' +
+				'</li>';
+			$('.botul').append(html);
+			optionnum++
+		})
+		//信息-
+		$('.botul>span:nth-child(2)').on('click', function() {
+			$('.botul>li:last-child').remove();
+		})
+		//高级搜索一级
+		yiji();
+
+		function yiji() {
+			$.ajax({
+				url: getURL() + "webservice/service/find/selectFindResourceClassification",
+				type: "get",
+				async: true,
+				dataType: "json",
+				success: function(data) {
+					var html = '<p class="clickp"><input name="literature" type="radio" checked="checked" value="' + data.data[0].id + '">' + data.data[0].name + ' </p>';
+					for(var i = 1; i < data.data.length; i++) {
+						html += '<p class="clickp"><input name="literature" type="radio" value="' + data.data[i].id + '">' + data.data[i].name + ' </p>';
+					}
+					$('.top-ri').html(html);
+					erji(data.data[0].id);
+					$(".clickp").on('click', function() {
+						$('input[name=literature]').removeAttr('checked')
+						$(this).find('input').prop('checked', 'checked');
+						var andorid = $(this).find('input').val()
+						erji(andorid);
+					})
+				}
+			})
+		}
+		//高级搜索二级
+		var erjicon = ''; //保存下拉信息在+时调用
+		function erji(id) {
+			$.ajax({
+				url: getURL() + "webservice/service/find/selectFindDocumenttype?type=" + id,
+				type: "get",
+				async: true,
+				dataType: "json",
+				success: function(data) {
+					// console.log(data)
+					var html = '';
+					for(var i = 0; i < data.data.length; i++) {
+						html += '<option value="' + data.data[i].propertyName + '">' + data.data[i].name + '</option>';
+					}
+					$('.sel2').html(html)
+					erjicon = html;
+				}
+			})
+		}
+		//模态框关闭时清空所有选项
+		$('#myModal').on('hidden.bs.modal', function() {
+			$('#name,.txt').val('');
+			yiji();
+			$('.sel1').val('and');
+			$('.sel3').val('0');
+			jsku();
+			language1();
+			cyg();
+			$('input[name=datanumber],input[name=display]').removeAttr('checked');
+			$(".tiaoshu").eq(0).prop('checked', 'checked');
+			$(".xianshi").eq(0).prop('checked', 'checked');
+			$('#startmember').html('<option value="">开始的年份</option>');
+			$('#endmember').html('<option value="">结束的年份</option>');
+			yeartime();
+			$('.botul>li').eq(2).nextAll().remove();
+		})
+		//高级搜索数据库选择
+		jsku();
+
+		function jsku() {
+			$.ajax({
+				url: getURL() + "webservice/service/find/selectFindRepository",
+				type: "get",
+				async: true,
+				dataType: "json",
+				success: function(data) {
+					var html = "";
+					for(var i = 0; i < data.data.length; i++) {
+						html += '<label>' + data.data[i].name + '<input name="data" type="checkbox" value="' + data.data[i].id + '"></label>'
+					}
+					$('.data').html(html)
+				}
+			})
+		}
+		//语种
+		language1();
+
+		function language1() {
+			$.ajax({
+				url: getURL() + "webservice/service/find/selectDict?typeCode=langCode",
+				type: "get",
+				async: true,
+				dataType: "json",
+				success: function(data) {
+					// console.log(data)
+					var html = '';
+					for(var i = 0; i < data.data.length; i++) {
+						html += "<option value='" + data.data[i].id + "'>" + data.data[i].name + "</option>"
+					}
+					$("#language").html(html)
+				}
+			})
+		}
+		//成员馆
+		cyg();
+
+		function cyg() {
+			$.ajax({
+				url: getURL() + "webservice/service/find/selectHouse",
+				type: "get",
+				async: true,
+				dataType: "json",
+				success: function(data) {
+					var html = '';
+					for(var i = 0; i < data.data.length; i++) {
+						html += "<option value='" + data.data[i].id + "'>" + data.data[i].name + "</option>"
+					}
+					$('#member').html(html)
+				}
+			})
+		}
+		//设置年份的选择
+		yeartime();
+
+		function yeartime() {
+			var myDate = new Date();
+			var startYear = myDate.getFullYear() - 50; //起始年份
+			var endYear = myDate.getFullYear() + 50; //结束年份
+			var html = '<option value="0">开始的年份</option>';
+			for(var i = startYear; i <= endYear; i++) {
+				html += '<option value="' + i + '">' + i + '</option>'
+			}
+			$('#startmember').html(html) //.val(myDate.getFullYear());//定位到当年
+			$('#startmember').on("change", function() {
+				html = '<option value="0">结束的年份</option>';
+				for(var j = this.value; j <= endYear; j++) {
+					if(j == 0) {
+						return false;
+					}
+					html += '<option value="' + j + '">' + j + '</option>'
+				}
+				$('#endmember').html(html) //.val(myDate.getFullYear());//定位到当年
+			})
+		}
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>佛山图书馆资源发现系统</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<script src="js/addURL.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+	</style>
+	<body>
+		<div class="title">
+			<img class="logo" src="img/logo.png"/>
+			<p class="title-p">佛山图书馆资源发现系统</p>
+			<div class="logoin">
+				
+			</div>
+		</div>
+		<div class="wrap">
+			<div class="jump">
+				<p>数字资源</p>
+				<p>高级检索</p>
+			</div>
+			<div id="div1">
+				<!--<a href="javascript:void(0)">十九大</a>
+				<a href="javascript:void(0)">胜利</a>
+				<a href="javascript:void(0)">召开</a>
+				<a href="javascript:void(0)">习近平</a>
+				<a href="javascript:void(0)">一带一路</a>
+				<a href="javascript:void(0)">十九大</a>
+				<a href="javascript:void(0)">胜利</a>
+				<a href="javascript:void(0)">召开</a>
+				<a href="javascript:void(0)">习近平</a>
+				<a href="javascript:void(0)">一带一路</a>
+				<a href="javascript:void(0)">十九大</a>
+				<a href="javascript:void(0)">胜利</a>
+				<a href="javascript:void(0)">召开</a>
+				<a href="javascript:void(0)">习近平</a>
+				<a href="javascript:void(0)">一带一路</a>-->
+			</div>
+			<div id="div2">
+				<img src="img/tu.png"/>
+				<div>
+					<select name="" class="bibliography">
+						<!--<option value="0">全部</option>
+						<option value="1">数字资源</option>
+						<option value="2">站内信息</option>-->
+					</select>
+					<select name="" class="field">
+						<!--<option value="0">全部字段</option>
+						<option value="1">书名</option>
+						<option value="2">作者</option>
+						<option value="3">主题词</option>
+						<option value="4">ISBN</option>
+						<option value="5">分类号</option>-->
+					</select>
+					<input id="ipt1" name="tn" type="hidden" value="baidu" >
+					<input type="text" id="txt"  value="" name="word" maxlength="8048" value="" placeholder="" baiduSug=1 onmouseover="focus()" />
+					<p class="ch-btn">中文搜索 <input type="hidden" class="klj" value="87"/></p>
+					<p class="en-btn">外文搜索 <input type="hidden" class="klj" value="88"/></p>
+				</div>
+					
+			</div>
+		</div>
+		<!--高级检索-->
+		<div style="display: none;" class="modal fade modal1" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header modal1-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="img/x-1000_03.png"/></button>
+						<h4 class="modal-title" style="line-height: 40px;">个性化检索</h4>
+					</div>
+					<div class="modal-body modal1-body">
+						<div class="name" style="opacity: 0">
+							检索名称：<input type="text" id="name" /> <span id="fanhui">返回简单检索</span>
+						</div>
+						<div class="literature">
+							<div class="top">
+								<div class="top-le">
+									文献类型选择：
+								</div>
+								<div class="top-ri">
+
+								</div>
+							</div>
+							<div class="bottom">
+								<ul class="botul">
+									<span>+</span>
+									<span>-</span>
+									<li>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+									<li>
+										<select name="" class="sel1">
+											<option value="and">与</option>
+											<option value="or">或</option>
+										</select>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+									<li>
+										<select name="" class="sel1">
+											<option value="and">与</option>
+											<option value="or">或</option>
+										</select>
+										<select name="" class="sel2">
+											<option value="">全部字段</option>
+										</select>
+										<input type="text" name="" value="" class="txt" />
+										<select name="" class="sel3">
+											<option value="0">全部</option>
+											<option value="1">精确</option>
+										</select>
+									</li>
+								</ul>
+								<p style="margin-top: 10px;font-size: 14px;">说明：高级检索多个条件检索是按照顺序运算的：如A或B与C 即：(A或B)与C</p>
+							</div>
+							<p class="datap">数据库选择：</p><div class="data">
+						</div>
+							<p class="language">语种：
+								<select name="" id="language">
+									<option value="">请选择</option>
+								</select>
+								<span style="margin-left: 65px;">成员馆：</span>
+								<select name="" id="member">
+									<option value="">请选择</option>
+								</select>
+							</p>
+							<p class="yesear">年份：
+								<select name="" id="startmember">
+									<option value="">开始的年份</option>
+								</select>
+								至
+								<select name="" id="endmember">
+									<option value="">结束的年份</option>
+								</select>
+							</p>
+							<p class="datanumber">每页显示条数：
+								<label><input class="tiaoshu" name="datanumber" type="radio" value="15" checked="checked" />15</label>
+								<label><input class="tiaoshu" name="datanumber" type="radio" value="20" />20</label>
+							</p>
+							<!--<p class="display">只显示：-->
+							<!--<label><input class="xianshi" name="display" type="radio" value="0" checked="checked" />馆藏书目</label>-->
+							<!--<label><input class="xianshi" name="display" type="radio" value="1" />电子书目</label>-->
+							<!--</p>-->
+							<div class="btns">
+								<div id="searchbtn">检索</div>
+								<div id="returnbtn">返回简单检索</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="foot">
+			<p>地址：佛山市佛山新城华康道（新馆） 邮编：528000 总机：0757-28360000</p>
+			<p>粤ICP备05083431号-5粤公安网安备44060402000039号</p>
+		</div>
+	</body>
+	<script src="js/jquery2.0.js" type="text/javascript" charset="utf-8"></script>
+	<script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicCondition.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/SeniorSearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/miaov.js" type="text/javascript" charset="utf-8"></script>
+</html>

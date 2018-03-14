@@ -1,0 +1,263 @@
+body{
+	background: #EEEEEE;
+}
+.wrap{
+    width: 100%;
+}
+.top{
+    width: 100%;
+    height: 40px;
+    background: #f2f2f2;
+}
+.top img{
+    float: left;
+    height: 15px;
+    margin: 13px 0 0 100px;
+}
+.top>p{
+    float: left;
+    margin: 15px 0 0 3px;
+    font-size: 14px;
+}
+.logoin{
+    float: right;
+    margin-right: 165px;
+    margin-top: 10px;
+}
+.logoin>li{
+    float: left;
+    padding: 0 20px;
+    border-right: 1px solid black;
+    text-align: center;
+    font-size: 14px;
+}
+.logoin>li:hover{
+    cursor: pointer;
+    background: #B3B3B3;
+}
+.title{
+    width: 1200px;
+    height: 151px;
+    position: relative;
+    background: url(../img/topbg.png) no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+.slider{
+    width: 100%;
+    height: 42px;
+    position: absolute;
+    bottom: 0;
+    background: rgba(91,192,221,0.8);
+}
+.slider>li{
+    float: left;
+    padding: 10px 30px;
+    color: white;
+    cursor: pointer;
+}
+.sliders{
+    background: white;
+    color: #2d91ac !important;
+}
+#sousuo{
+    width: 370px;
+    height: 38px;
+    margin-top: 2px;
+    float: right;
+}
+#dataname{
+    width: 244px;
+    height: 28px;
+    margin: 0;
+}
+#datasousuo{
+    width: 90px;
+    height: 35px;
+    background: #2CC6F5;
+    color: white;
+    border: none;
+    -moz-border-radius: 10px; /* Firefox */
+    -webkit-border-radius: 10px; /* Safari 和 Chrome */
+    border-radius: 10px;
+}
+.foot{
+    width: 100%;
+    height: 80px;
+    color: white;
+    background: #07b5e6;
+}
+.foot>p{
+    line-height: 80px;
+    text-align: center;
+}
+/*共有样式结束*/
+.content{
+	width: 1200px;
+	/*min-height: 702px;*/
+	overflow: hidden;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 10px 0 100px 0;
+}
+.con-all{
+	width: 920px;
+	min-height: 592px;
+	background: white;
+	float: left;
+}
+.con-user{
+	width: 270px;
+	height: 425px;
+	float: left;
+	margin-left: 10px;
+	background: white;
+}
+.all-ul{
+	width: 100%;
+	height: 33px;
+	margin: 10px 0;
+	box-sizing: border-box;
+	padding-left: 20px;
+}
+.all-ul>li{
+	/*height: 30px;*/
+	font-size: 14px;
+	padding: 0 8px;
+	/*line-height: 30px;*/
+	text-align: center;
+	float: left;
+	cursor: pointer;
+	border: 1px solid rgba(0,0,0,0);
+}
+#all-color{
+	color: #f9b346;
+	border: 1px solid #CCCCCC;
+	box-shadow: 0px 0px 15px #EEEEEE;
+	-moz-border-radius: 5px; /* Firefox */
+    -webkit-border-radius: 5px; /* Safari 和 Chrome */
+    border-radius: 5px;
+}
+.all-img{
+	width: 100%;
+	height: 414px;
+	font-size: 12px;
+	box-sizing: border-box;
+	padding-left: 20px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.datu{
+	width: 880px;
+	height: 380px;
+	-moz-border-radius: 10px; /* Firefox */
+    -webkit-border-radius: 10px; /* Safari 和 Chrome */
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.datu>img{
+	width: 880px;
+	height: 380px;
+}
+
+.all-img>p{
+	margin: 10px 0;
+}
+.all-img>p>span{
+	color: #F8A506;
+	margin-right: 20px;
+}
+.all-img>p>b{
+	font-weight: 100;
+	float: right;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.all-img>p>b>img{
+	margin-top: -4px;
+}
+.explain{
+	width: 100%;
+	min-height: 350px;
+	box-sizing: border-box;
+	padding: 10px 0 0 20px;
+}
+.explain>h3{
+	color: #BC1119;
+}
+.explain>p{
+	font-size: 12px;
+	line-height: 1.7rem;
+}
+.headimg{
+	width: 82px;
+	height: 82px;
+	margin: 0 auto;
+	margin-top: 30px;
+	border: 2px solid #07b284;
+	-moz-border-radius: 50%; /* Firefox */
+    -webkit-border-radius: 50%; /* Safari 和 Chrome */
+    border-radius: 50%;
+}
+.username{
+	text-align: center;
+	margin: 10px 0;
+}
+.shoucang{
+	width: 233px;
+	height: 43px;
+	border: 1px solid #CCCCCC;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	text-align: center;
+	line-height: 43px;
+	-moz-border-radius: 4px; /* Firefox */
+    -webkit-border-radius: 4px; /* Safari 和 Chrome */
+    border-radius: 4px;
+    cursor: pointer;
+}
+.shoucang>img{
+	margin-top: -4px;
+}
+.tis{
+	width: 96%;
+	margin: 0 auto;
+	font-size: 14px;
+	line-height: 1.2rem;
+}
+/*个人出版预览*/
+.con{
+	width: 1200px;
+	/*min-height: 702px;*/
+	overflow: hidden;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 10px 0 100px 0;
+}
+.la{
+	width: 145px;
+	display: inline-block;
+}
+.la>img{
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.con-con{
+	width: 920px;
+	min-height: 592px;
+	background: white;
+	display: inline-block;
+	vertical-align: top;
+}
+.con-con>h2{
+	text-indent: 20px;
+}
+/*我的出版物*/
+.mepublication{
+	width: 1200px;
+	min-height: 702px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 10px 0 100px 0;
+	background: #f8f7f7;
+}

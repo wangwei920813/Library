@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数字资源制作与管理</title>
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/animate.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/nanoscroller.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/make.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../js/jquery.nanoscroller.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+    	/*分页器样式*/
+			.tcdPageCode,.tcdPageCode2,.tcdPageCode3, .tcdPageCode4{padding: 25px 0px 20px 0px; text-align: left;color: #ccc;text-align:center;}
+			.tcdPageCode a,.tcdPageCode2 a,.tcdPageCode3 a, .tcdPageCode4 a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+			.tcdPageCode a:hover,.tcdPageCode2 a:hover,.tcdPageCode3 a:hover, .tcdPageCode4 a:hover{text-decoration: none;border: 1px solid #428bca;}
+			.tcdPageCode span.current,.tcdPageCode2 span.current,.tcdPageCode3 span.current,.tcdPageCode4 span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #428bca;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+			.tcdPageCode span.disabled,.tcdPageCode2 span.disabled,.tcdPageCode3 span.disabled,.tcdPageCode4 span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
+			#number{width: 40px;height: 18px;margin: 0;margin-left: 20px;}
+			.record{display: inline-block;}
+			#jump{display: inline-block;height:28px;padding-left: 10px;vertical-align: top;line-height: 28px;cursor: pointer;}
+			/*分页器样式**结束*/
+        .foot{
+            width: 100%;
+            height: 80px;
+            color: white;
+            background: #07b5e6;
+        }
+        .foot>p{
+            line-height: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" id="app">
+        <div class="top">
+            <img src="../img/blue.png"/> <p>佛山市图书馆</p>
+            <ul class="logoin">
+                <li>登录</li>
+                <li>注册</li>
+                <li>联系客服</li>
+            </ul>
+        </div>
+        <div class="title">
+            <ul class="slider">
+                <li>首页</li>
+                <li class="sliders">创建个人出版物</li>
+                <li>我的出版物</li>
+                <div id="sousuo">
+                    <input type="text" name="" id="dataname" value="" placeholder="输入数据库名称" />
+                    <input type="button" name="" id="datasousuo" value="搜索" />
+                </div>
+            </ul>
+        </div>
+        <div class="process">
+    		<img src="../img/xuanze_03.png" alt="" />
+    		<img src="../img/xuanze_04.png" alt="" />
+    		<img src="../img/xuanze_05.png" alt="" />
+    	</div>
+        <!--预览-->
+        <div class="pre">
+        	<iframe src="preview.html" width="1200px" height="600px" style="margin-top: 5px; border: 1px solid rgba(0,0,0,0);"></iframe>
+        	<button id="tui" type="button" class="btn">退出</button>
+        </div>
+        <div class="foot">
+            <p>地址：佛山市佛山新城华康道11号(新馆) 邮编：528000 总机：0757-28360000 粤ICP备05083431号-5 粤 公网安备44060402000039号</p>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>-->
+<script>
+    $(function(){
+    	$('.content').css('display','none');
+		$('.content1').css('display','block');
+		//进度条变更
+		$('.process').find('img:nth-child(1)').attr('src','../img/xuanze_11_03.png');
+		$('.process').find('img:nth-child(2)').attr('src','../img/xuanze_11_04.png');
+        //导航首页点击
+        $(".slider>li").on('click',function(){
+            $(".slider>li").removeClass('sliders');
+            $(this).addClass('sliders');
+            if($(this).index()==0){
+            	window.location.href = '../index.html';
+            }else if($(this).index()==1){
+            	window.location.href = '../make.html';
+            }else if($(this).index()==2){
+            	window.location.href = '../publication.html';
+            }
+        })
+		//预览退出
+		$('#tui').on('click',function(){
+			window.location.href = "../maket.html"
+		})
+})
+</script>
+</html>

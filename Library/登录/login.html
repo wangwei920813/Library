@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			.loginbox{
+				width: 635px;
+				height: 455px;
+				background: white;
+				/*position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%) !important;
+				-webkit-transform: translate(-50%,-50%) !important;*/
+				margin: 0 auto;
+				margin-top: 190px;
+				-moz-border-radius: 15px;
+				-webkit-border-radius: 15px;
+				border-radius: 15px;
+				overflow: hidden;
+				display: none;
+			}
+			.log-title{
+				width: 100%;
+				height: 65px;
+				line-height: 65px;
+				font-size: 24px;
+				text-align: center;
+				background: #00a1c5;
+				color: white;
+			}
+			.log-title>img{
+				float: right;
+				margin: 10px 10px 0 0;
+				cursor: pointer;
+			}
+			.log-con{
+				width: 100%;
+				height: 390px;
+				box-sizing: border-box;
+				padding: 65px 65px 0 95px;
+			}
+			.zh, .mm{
+				width: 100%;
+				height: 50px;
+				line-break: 35px;
+				font-size: 20px;
+			}
+			.wjmm{
+				width: 100%;
+				height: 50px;
+			}
+			.wjmm>a{
+				float: right;
+				margin-top: 10px;
+				font-size: 18px;
+			}
+			.log-con>p>input{
+				width: 400px;
+				height: 40px;
+				margin: 0 !important;
+				font-size: 20px;
+			}
+			.log-con>p:nth-child(1){
+				margin-bottom: 30px;
+			}
+			.cancel, .login{
+				height: 50px;
+				font-size: 22px;
+				color: white;
+				text-align: center;
+				line-height: 50px;
+				display: inline-block;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			.cancel{
+				width: 165px;
+				background: #bb1117;
+			}
+			.login{
+				width: 270px;
+				background: #f6a807;
+				margin-left: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="loginbox" style="display: block;">
+			<p class="log-title">统一认证平台 <img class="X" src="img/X.png"></p>
+			<div class="log-con">
+				<p class="zh">证号：<input type="text" name="" id="loginbox1" value="" placeholder="请输入身份证号/图书证号"></p>
+				<p class="mm">密码：<input type="password" name="" id="loginbox2" value="" placeholder="请输入密码"></p>
+				<p class="wjmm"><a href="###">忘记密码</a></p>
+				<div class="cancel">取消</div>
+				<div class="login">登录</div>
+			</div>
+			
+		</div>
+		<a href="http://127.0.0.1:8082/uploadReadersHubVideo/mysql.jar" download="http://127.0.0.1:8082/uploadReadersHubVideo/mysql.jar">down</a>
+	</body>
+</html>

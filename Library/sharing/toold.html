@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工具下载</title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/addURL.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<img class="zixun" src="img/right_03.png"/>
+		<div id="fixed">
+			<img src="img/right_07.png"/>
+			<img src="img/right_09.png"/>
+			<img src="img/right_11.png"/>
+			<img src="img/right_13.png"/>
+			<img src="img/right_15.png"/>
+			<img src="img/right_17.png"/>
+			<img src="img/right_20.png"/>
+		</div>
+		<div class="wrap">
+			<iframe src="top.html" width="100%" height="40px" style="border: none;"></iframe>
+			<div class="title">
+				<ul class="slider">
+					<li class="homepage">首页</li>
+					<li class="navigation">资源导航</li>
+					<li class="consultation">资讯</li>
+					<li class="courseware">培训课件</li>
+					<li class="favorite">我的收藏夹</li>
+					<li class="reference">参考咨询</li>
+					<li class="sliders toold">工具下载</li>
+					<div id="sousuo">
+						<input type="text" name="" id="dataname" value="" placeholder="输入数据库名称" />
+						<input type="button" name="" id="datasousuo" value="搜索" />
+					</div>
+				</ul>
+			</div>
+			<div class="content">
+				<!--工具下载-->
+				<div class="tool">
+					<p style="font-size: 20px; line-height: 35px;">培训课件</p>
+					<div class="tool-left">
+						<p class="p1">序号</p><p class="p2">工具下载</p><p class="p3">简要说明</p>
+						<ul class="tool-c">
+							<!--<li><p class="c-p1">1</p><p class="c-p2">阅读器</p><p class="c-p3">这就是个阅读器</p></li>
+							<li><p class="c-p1">2</p><p class="c-p2">PDF阅读器s</p><p class="c-p3">这是一个阅读器</p></li>
+							<li><p class="c-p1">3</p><p class="c-p2">exe阅读器</p><p class="c-p3">这是一个阅读器</p></li>
+							<li><p class="c-p1">4</p><p class="c-p2">txt阅读器</p><p class="c-p3">这是一个阅读器</p></li>-->
+						</ul>
+						<!--分页器-->
+						<div class="tcdPageCode" style="display: none;"></div>
+					</div>
+					<ul class="tool-right">
+						<li><img src="img/hz_03.png"/></li>
+						<li><img src="img/hz_06.png"/></li>
+						<li><img src="img/hz_08.png"/></li>
+						<li><img src="img/hz_10.png"/></li>
+						<li><img src="img/hz_13.png"/></li>
+						<li><img src="img/hz_16.png"/></li>
+						<li><img src="img/hz_18.png"/></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<iframe src="bottom.html" width="100%" height="80px" style="border: none;"></iframe>
+	</body>
+	<script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/PublicMethod.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			//工具下载分页
+			var pagenum = 1;
+			var totalpage = '';
+			var datanum = 10;//每页展示条数
+			$.ajax({
+					type:"get",
+					url:getURL()+"webservice/service/shared/getTool?start=0&end=100",
+					async:false,
+					dataType:"json",
+					success:function(data){
+						totalpage = Math.ceil(data.data.count/datanum);
+						if(totalpage>1){
+							$('.tcdPageCode').css('display','block')
+						}else{
+							$('.tcdPageCode').css('display','none')
+						}
+					}
+				})
+			
+			paging()
+			function paging() {
+				$(".tcdPageCode").createPage({
+					pageCount: totalpage,
+					current: 1,
+					backFn: function(p) {
+						//console.log(p);
+						pagenum = p;
+						//console.log(pagenum)
+						condata(pagenum,datanum)
+					}
+				});
+			}
+			condata(pagenum,datanum)
+			function condata(pagenum,datanum){
+				$.ajax({
+					type:"get",
+					url:getURL()+"webservice/service/shared/getTool?start="+pagenum+"&end="+datanum,
+					async:true,
+					dataType:"json",
+					success:function(data){
+						console.log(data)
+						var html = '';
+						for (var i = 0; i < data.data.accounts.length; i++) { 
+							html += '<li><p class="c-p1">'+(i+1)+'</p><p class="c-p2"><a style="display:inlien-block" href="'+data.data.accounts[i].url+'" download="'+data.data.accounts[i].url+'" ><input type="hidden" value="'+data.data.accounts[i].id+'" >'+data.data.accounts[i].name+'</a></p><p class="c-p3">'+data.data.accounts[i].introduce+'</p></li>'
+						}
+						$('.tool-c').html(html)
+						$(document).on('click','.c-p2>a',function(){
+							var thisid = $(this).find('input').val();
+							$.ajax({
+								type:"post",
+								url:getURL()+"webservice/service/shared/addToolinfo",
+								async:true,
+								dataType:"json",
+								data:"{'ipinfo':'"+returnCitySN['cip']+"','toolid':'"+thisid+"'}",
+								success:function(data){
+									console.log(data)
+								}
+							})
+						})
+					}
+				});
+			}
+			
+			
+			
+		})
+	</script>
+</html>
