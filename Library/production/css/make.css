@@ -227,6 +227,10 @@ body{
 	height: 690px;
 	display: inline-block;
 	border: 1px solid #CCCCCC;
+	vertical-align: top;
+}
+.w-e-text-container{
+	height:662px !important;
 }
 .bottom{
 	width: 875px;

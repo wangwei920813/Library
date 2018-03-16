@@ -132,32 +132,36 @@
 	        		</div>
 	        		<div class="template">
 	        			<p>3</p>
-	        			<div id="">
+	        			<div>
 	        				
 	        			</div>
 	        		</div>
 	        		<div class="template">
 	        			<p>4</p>
-	        			<div id="">
+	        			<div>
 	        				
 	        			</div>
 	        		</div>
 	        		<div class="template">
 	        			<p>5</p>
-	        			<div id="">
+	        			<div>
 	        				
 	        			</div>
 	        		</div>
 	        		<div class="template">
 	        			<p>6</p>
-	        			<div id="">
+	        			<div>
 	        				
 	        			</div>
 	        		</div>
 	        	</div>
         	</div>
         	<div class="con-right1">
-        		<iframe id="ifra" src="ued.html" width="100%" height="100%"></iframe>
+        		<!--<iframe id="ifra" src="ued.html" width="100%" height="100%"></iframe>-->
+				<iframe id="ifra" src="http://192.168.0.114:8080/make/personal/personUE" name="myframe" frameborder="0" style="width: 100%;height: 100%; overflow: hidden"></iframe>
+				<!--<div id="editor" style="height: 690px;">-->
+					<!--<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>-->
+				<!--</div>-->
         	</div>
         	<div class="bottom">
         		<div class="treaty" data-toggle="modal" data-target="#myModal">
@@ -205,10 +209,49 @@
     </div>
 </body>
 <script src="js/jquery.page.js" type="text/javascript" charset="utf-8"></script>
-<!--<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>-->
+<script src="js/wangEditor.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/wang.js"></script>
 <script>
     $(function(){
+        var proxy = function(url, callback) {
+            var state = 0;
+            var iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+
+            // 加载跨域页面
+            iframe.src = url;
+
+            // onload事件会触发2次，第1次加载跨域页，并留存数据于window.name
+            iframe.onload = function() {
+                if (state === 1) {
+                    // 第2次onload(同域proxy页)成功后，读取同域window.name中数据
+                    callback(iframe.contentWindow.name);
+                    destoryFrame();
+
+                } else if (state === 0) {
+                    // 第1次onload(跨域页)成功后，切换到同域代理页面
+                    iframe.contentWindow.location = 'ued.html';
+                    state = 1;
+                }
+            };
+
+            document.body.appendChild(iframe);
+
+            // 获取数据以后销毁这个iframe，释放内存；这也保证了安全（不被其他域frame js访问）
+            function destoryFrame() {
+                iframe.contentWindow.document.write('');
+                iframe.contentWindow.close();
+                document.body.removeChild(iframe);
+            }
+        };
+
+
+        $('#cun').on('click',function(){
+// 请求跨域b页面数据
+            proxy('http://192.168.0.114:8080/make/personal/personUE', function(data){
+                console.log(data);
+            });
+		})
     	//阻止默认事件
 //  	$(document).bind("selectstart", function () { return false; });
     	$('.content').css('display','none');
